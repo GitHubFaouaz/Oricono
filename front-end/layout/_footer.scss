@@ -1,0 +1,11 @@
+.nav-footer{
+
+    background: $color-peche;
+    height: 7vh;
+    display: flex;
+    justify-content: space-around;
+    a{
+        color: $color-black;
+        font-size: 2rem;
+    }
+}

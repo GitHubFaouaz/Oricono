@@ -1,0 +1,44 @@
+header {
+  background: #f3976c;
+  padding: 1rem;
+}
+
+header a {
+  font-size: 2.5rem;
+  color: black;
+}
+
+.contener-bear-photo {
+  background: white;
+  height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contener-bear {
+  background: black;
+  height: 45vh;
+}
+
+.nav-footer {
+  background: #f3976c;
+  height: 7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav-footer a {
+  color: black;
+  font-size: 2rem;
+}
+/*# sourceMappingURL=style.css.map */
