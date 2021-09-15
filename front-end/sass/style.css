@@ -1,0 +1,109 @@
+header {
+  background: black;
+  padding: 1rem;
+}
+
+header a {
+  font-size: 2.5rem;
+  color: #f3976c;
+}
+
+.contener-bear-photo {
+  background-image: url("/front-end/img/teddy_4.jpg");
+  background-repeat: repeat;
+  background-size: 50%;
+  height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sectionNounours {
+  background: #f3976c;
+}
+
+.sectionNounours h2 {
+  text-align: center;
+  color: #f3976c;
+}
+
+.container-bear {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 1rem 1rem 0 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+article {
+  width: 30%;
+  background: #f3976c;
+  border-radius: 1rem;
+  margin: 1rem;
+  -webkit-box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px black;
+}
+
+article:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: -webkit-transform 550ms;
+  transition: -webkit-transform 550ms;
+  transition: transform 550ms;
+  transition: transform 550ms, -webkit-transform 550ms;
+}
+
+article img {
+  width: 100%;
+  height: 175px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  border-radius: 1rem 1rem 0 0rem;
+}
+
+article .div-details-photo {
+  padding: 0.5rem 0.5rem;
+  background: black;
+  color: #f3976c;
+  height: 70px;
+  border-radius: 0 0 1rem 1rem;
+}
+
+article .div-details-photo p {
+  margin-bottom: 0.2rem;
+}
+
+article .nom-prix {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: bold;
+}
+
+.nav-footer {
+  background: black;
+  height: 7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav-footer a {
+  color: #f3976c;
+  font-size: 2rem;
+}
+/*# sourceMappingURL=style.css.map */

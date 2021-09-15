@@ -1,0 +1,81 @@
+
+.contener-bear-photo{
+ 
+    background-image:url("/front-end/img/teddy_4.jpg");
+    background-repeat: repeat;
+    background-size: 50%;
+
+height: 30vh;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.sectionNounours{
+    
+    background: #f3976c;
+    h2{
+        text-align: center;
+        color: $color-peche;
+        
+    }
+}
+.container-bear{
+
+   
+    
+    display: flex;
+   
+    flex-wrap: wrap;
+   
+    border-radius: 1rem 1rem 0 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+   
+    
+ 
+}
+article{
+    width: 30%; 
+   background: $color-peche;
+   border-radius: 1rem ;
+   margin: 1rem;
+   box-shadow: 1px 1px 5px $color-black;
+   &:hover {
+    transform: scale(1.05);
+    transition: transform 550ms;
+
+   }
+    img{
+        //object-fit: cover;
+        width: 100%;
+        height: 175px;
+        object-fit: fill;
+        border-radius: 1rem 1rem 0 0rem;
+
+    };
+    .div-details-photo{
+       
+        padding: 0.5rem 0.5rem ; 
+        background: $color-black;
+        color: $color-peche;
+        height: 70px;
+        border-radius:0 0 1rem 1rem;
+        p{
+            margin-bottom: 0.2rem;
+        }
+        
+
+    }
+    .nom-prix{
+       
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        
+    }
+}
+
+//..........section product............................///////
+
+
