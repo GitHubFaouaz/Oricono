@@ -1,9 +1,19 @@
 header {
   background: black;
-  padding: 1rem;
+  padding: 0;
 }
 
-header a {
+header .navbar {
+  padding: 0 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .navbar a {
   font-size: 2.5rem;
   color: #f3976c;
 }
@@ -92,9 +102,76 @@ article .nom-prix {
   font-weight: bold;
 }
 
+.main-product {
+  background: #f3976c;
+}
+
+.div_product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #f3976c;
+  color: black;
+}
+
+.div_product .img-product {
+  width: 100%;
+  height: 380px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.product-infos {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  padding-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 1rem;
+}
+
+.product-infos .product-infos_title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.product-infos .product-infos_price {
+  font-weight: bold;
+}
+
+.product-infos .product-infos-choix {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product-infos .product-infos-choix .btn-secondary {
+  width: 180px;
+  margin-top: 1rem;
+}
+
+.img-product_panier {
+  height: 50px;
+}
+
 .nav-footer {
   background: black;
-  height: 7vh;
+  padding-bottom: 0.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
