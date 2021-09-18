@@ -124,8 +124,91 @@ color: $color-black;
 }
 
 //............................. Page panier .....................................................
+#main-panier{
+ margin: 1rem 0 ;
+ h2{
+    font-size: 1.5rem;
+ }
+}
 
-.img-product_panier{
+#section-info-panier{
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: $color-peche;
+  thead{
+    border-bottom: 1px solid grey;
+    background: white;
+    tr{
+   width: 100%;
+   
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: white;
+   }    
+ 
+  }
 
-    height: 50px;
+  tbody{
+     tr{
+         display: flex;
+         justify-content: center;
+         padding: 0.5rem;
+         background: white;
+     } 
+  }
+}
+#section-commande{
+    background: $color-peche;
+    padding: 1rem;
+    border-radius: 1rem;
+    form{
+       display: grid;
+       grid-template-columns: repeat(4, 1fr);// 1f 1fr 1fr 1fr
+       gap: 1rem;
+       :nth-child(3){
+        grid-column-start: 3;
+        grid-column-end: 5;
+        
+       }
+       :nth-child(4){
+        grid-column-start: 1;
+        grid-column-end: 3;
+        
+       }
+       :nth-child(7){
+        
+        grid-column-end: 5;
+        
+       }
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        input{
+            padding: 5px 1rem;
+            border-radius: 7px;
+        }
+        
+    }
+
+
+}
+
+//.....................page confirmation................................
+#recap_commande{
+display: flex;
+justify-content: center;
+   #confirm_commande{
+     background: #adb5bd;
+     color: $color-black;
+     margin: 2rem 0;
+     padding: 1rem;
+     border-radius: 1rem;
+     width: 45rem;
+     h2,p{
+         margin-top: 3rem;
+     } 
+   }
 }

@@ -165,8 +165,114 @@ article .nom-prix {
   margin-top: 1rem;
 }
 
-.img-product_panier {
-  height: 50px;
+#main-panier {
+  margin: 1rem 0;
+}
+
+#main-panier h2 {
+  font-size: 1.5rem;
+}
+
+#section-info-panier {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #f3976c;
+}
+
+#section-info-panier thead {
+  border-bottom: 1px solid grey;
+  background: white;
+}
+
+#section-info-panier thead tr {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5rem;
+  background: white;
+}
+
+#section-info-panier tbody tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.5rem;
+  background: white;
+}
+
+#section-commande {
+  background: #f3976c;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+#section-commande form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+#section-commande form :nth-child(3) {
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#section-commande form :nth-child(4) {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#section-commande form :nth-child(7) {
+  grid-column-end: 5;
+}
+
+#section-commande div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#section-commande div input {
+  padding: 5px 1rem;
+  border-radius: 7px;
+}
+
+#recap_commande {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#recap_commande #confirm_commande {
+  background: #adb5bd;
+  color: black;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 45rem;
+}
+
+#recap_commande #confirm_commande h2, #recap_commande #confirm_commande p {
+  margin-top: 3rem;
 }
 
 .nav-footer {
