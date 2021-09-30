@@ -1,3 +1,7 @@
+// concerne le panier 
+let panier = JSON.parse(localStorage.getItem("product"));// Pour stocker les produits selectionnees
+// localStorage.removeItem('casquette');
+
 // Formatage du prix pour l'afficher en euros
 function formatPrice(price) {
     let priceFormatted = price / 100;

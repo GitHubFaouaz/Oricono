@@ -1,6 +1,6 @@
  
 //  Récuperation des arcticles depuis l'API
- let url =`http://127.0.0.1:3000/api`;
+ let url =`http://localhost:3000/api`;
     
  fetch(url+'/teddies')
    .then((response) => response.json()
