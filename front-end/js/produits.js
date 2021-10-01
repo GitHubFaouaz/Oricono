@@ -1,44 +1,4 @@
 
-/*const searchParams = new URLSearchParams(location.search);
-// let params = new URL(document.location).searchParams; 
-let newId = searchParams.get("_id");
-
-//modification de  l'API 
-const newUrl = `http://localhost:3000/api/teddies/${newId}`;
-fetch (newUrl)
-             .then((response) => response.json())
-             .then((data) => { 
-               
-               addProduit(data); 
-
-// fonction pour  la récupération  du produit séléctionné 
-
-function addProduit(Product) { // a partir de  la class product  
-
- // inserer les informations du produit séléctionné 
- 
- const imageProduitSelectionne = document.getElementById("imageProuduit-js");
- imageProduitSelectionne.innerHTML += `
- <img src="${Product.imageUrl}" alt="${Product.name}">
-
- `; 
- const NameProduitSelectionne = document.getElementById("NameProuduit-js");
- NameProduitSelectionne.innerHTML += `
- <h1>${Product.name}</h1>
- `; 
- const descriptionProduitSelectionne = document.getElementById("descProuduit-js");
- descriptionProduitSelectionne.innerHTML += `
- <p>${Product.description}</p> <span > ${Product.price}</span>
- `; 
- const descriptionProduitSelectionne = document.getElementById("colorProuduit-js");
- descriptionProduitSelectionne.innerHTML += `
- <p>${Product.description}</p> <span > ${Product.price}</span>
- `; 
- 
- 
-  }
-});
-*/
 
 
 // 1)récuperation de la chaine de requete (queryString) dans l'url 
@@ -87,12 +47,22 @@ NameProduitSelectionne.innerHTML += `
 `; 
 const descriptionProduitSelectionne = document.getElementById("descProuduit-js");
 descriptionProduitSelectionne.innerHTML += `
-<p>${Product.description}</p> <span > ${Product.price}</span>
-`; 
+ <p>${Product.description}</p> <span > ${formatPrice(Product.price)}</span> <!--${(Product.price)/100} -->
+`;// utilisation de la function formattPrice avec Product.price comme prarametre 
+
+const colorProduitSelectionne = document.getElementById("colorProuduit-js");
+for (let i = 0; i < Product.colors.length; i++) {
+
+let option = document.createElement("option");
+option.innerText = Product.colors[i];
+colorProduitSelectionne.appendChild(option);
 
 
 
 }
+
+
+   }
 });
 
 

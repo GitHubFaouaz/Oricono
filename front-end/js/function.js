@@ -10,12 +10,13 @@ function formatPrice(price) {
 
   // création de la class produit
 class Product {
-  constructor(id, name, description, price, quantity, imgurl) {
+  constructor(id, name, description, price, quantity, imgurl,color) {
       this.id = id;
       this.name = name;
       this.description = description;
       this.price = +price;
       this.quantity = +quantity;
       this.imgurl = imgurl;
+      this.colors = color;
   }
 }

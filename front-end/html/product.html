@@ -29,29 +29,18 @@
          <div class="product_infos"> 
               <div class="product-infos_title" id="NameProuduit-js"></div> 
               <div class="product-infos_desc" id="descProuduit-js"> </div> 
-              <div class="product-infos_quantite"><p>Quantité</p>
-              
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-          </select>
+              <div class="product-infos_quantite"> 
+                <label for="quantiteBear">Quantité: </label>
+                <input id="quantiteBear" type="number" name="quantiteBear" value="1" min="1">
+   
           </div>
-          <div class="product-infos_couleur" id="colorProuduit-js">
-            <p>Couleur</p>
-            <select  >
-              <option value="" class="color_red"></option>
-              <option value="" class="color_peche"></option>
-              <option value="" class="color_grey"></option>
-              <option value="" class="color_white"></option>
-              <option value="" class="color_black"></option>
-            
-          </select>
+          <div class="product-infos_couleur" >
+            <label for="couleurBear">Couleur:</label>
+            <select name="couleurBear" id="colorProuduit-js" >
+              <!--insertion couleur produit-->
+            </select>
           </div>
-          <div class="product-infos_btn"> <button id="" class="btn btn-secondary" >Revenir aux peluches</button> <button id="" class="btn btn-secondary" >Ajouter au panier</button>   </div>
+          <div class="product-infos_btn"><a href="../index.html"> <button id="" class="btn btn-secondary" >Revenir aux peluches</button></a> <button id="" class="btn btn-secondary" >Ajouter au panier</button>   </div>
           
          
          </div>
