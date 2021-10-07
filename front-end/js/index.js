@@ -3,14 +3,15 @@
  let url =`http://localhost:3000/api`;
     
  fetch(url+'/teddies')
-   .then((response) => response.json()
-   .then((data) => addProduit(data) ) 
-  )
- //.catch((erreur) => console.log("erreur : " + erreur));
-.catch ( erreur => console.log("erreur : " + erreur ) );
+ .then((response) => response.json())
+ .then((data) => {
+     addCards(data);
+ })
+ .catch((erreur) => console.log("erreur : " + erreur));
+
 
 //fonction des données de chaque produit ( nom , prix  )
-function addProduit(data){
+function addCards(data){
 
   // boucle pour chaque produit 
 for( produit of data ){

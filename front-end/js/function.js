@@ -1,6 +1,4 @@
-// concerne le panier 
-let panier = JSON.parse(localStorage.getItem("product"));// Pour stocker les produits selectionnees
-// localStorage.removeItem('casquette');
+
 
 // Formatage du prix pour l'afficher en euros
 function formatPrice(price) {
@@ -8,15 +6,25 @@ function formatPrice(price) {
     return priceFormatted + " €";
   }
 
-  // création de la class produit
-class Product {
-  constructor(id, name, description, price, quantity, imgurl,color) {
-      this.id = id;
-      this.name = name;
-      this.description = description;
-      this.price = +price;
-      this.quantity = +quantity;
-      this.imgurl = imgurl;
-      this.colors = color;
-  }
+//Fonction ajouter un produit sélectionné dans le localStorage 
+/*const ajoutProduitLocalStorage = () => {
+  panier.push(infoProduitSelectionne);//push pour mettre dans un tableau 
+localStorage.setItem("key_produit", JSON.stringify(panier));//storage.setItem(nomClé, valeurClé); permet d'ajouter à l'emplacement de stockage 
+//JSON.stringify() convertit une valeur JavaScript en chaîne JSON
+ 
 }
+
+// function popup 
+/*function popupConfirmation (){
+
+  if(window.confirm(`${infoProduitSelectionne.nameProduitSelectionne} a été ajouté au panier
+Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.confirm Affiche un dialogue modal avec un message et deux boutons, OK et Annuler.
+  window.location.href ="../html/panier.html";                          
+  //L'objet location contient des informations sur l'URL actuelle. L'objet location fait partie de l'objet window et est accessible via la propriété window. location.  
+  //et fournit des methodes pour modifier cette url qui peut etre utilisée pour charger une page 
+  }else{
+  window.location.href ="../index.html"; 
+  }
+
+}*/
+

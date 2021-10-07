@@ -263,41 +263,28 @@ article .nom-prix {
   border-radius: 1rem;
 }
 
-#section-commande form {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
-#section-commande form :nth-child(3) {
-  -ms-grid-column: 3;
-      grid-column-start: 3;
-  grid-column-end: 5;
-}
-
-#section-commande form :nth-child(4) {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-#section-commande form :nth-child(7) {
-  grid-column-end: 5;
-}
-
-#section-commande div {
+#section-commande form .div-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#section-commande form .div-label div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-bottom: 1rem;
 }
 
-#section-commande div input {
+#section-commande form .div-label div input {
   padding: 5px 1rem;
   border-radius: 7px;
 }
