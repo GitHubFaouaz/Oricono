@@ -20,6 +20,32 @@ if(produitEnregistreDansLocalStorage === null){
    <div>`;
    positionElementHtml.innerHTML = panier_vide ;  
 }else {
-   console.log('je ne suis pas vide ');
+ //si le panier n'est pas vide :afficher les produits du localStorage 
+let strcutureProduitPanier = [];
 
+ for( a = 0 ; a < produitEnregistreDansLocalStorage.length ; a++ ){  // construction de la structure du produit a chaque tour
+   
+  strcutureProduitPanier = strcutureProduitPanier + 
+  ` 
+  
+  <tr>
+    <td>${produitEnregistreDansLocalStorage[a].image}</td>
+    <td>${produitEnregistreDansLocalStorage[a].Quantite}</td>
+    <td>${produitEnregistreDansLocalStorage[a].price}</td>
+    <td>Total</td>
+  </tr>
+
+  
+   
+   
+  `;
+  }
+  const elementBody = document.querySelector("#tbody_produit");
+  elementBody.innerHTML = strcutureProduitPanier ;
+  // if( a == produitEnregistreDansLocalStorage.length) {
+  // //
+
+  // }
+  
+  
 } 

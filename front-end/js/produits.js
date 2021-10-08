@@ -77,10 +77,11 @@ const choixCouleur = idCouleur.value;// value pour la couleur selectionnée
 let infoProduitSelectionne = {
    id_ProduitSelectionne  :idProduitSelectionne,
    nameProduitSelectionne : data.name,
-   Quantité :choixQuantité,
+   Quantite :choixQuantité,
    couleur :choixCouleur ,
-   price :`${formatPrice(data.price)}`
-
+   price :`${formatPrice(data.price)}`,
+   image : `
+   <img src="${data.imageUrl}" alt="${data.name}">`
 }
 
 //console.log( infoProduitSelectionne);
