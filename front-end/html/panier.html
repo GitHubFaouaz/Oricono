@@ -24,25 +24,54 @@
     <main id="main-panier">
     <div class="container" >      
       <section id="section-info-panier" >
-        <h2>Panier</h2>
+        
     <!-- insertion des produits du panier -->
     <table class="col-12">
       <thead>
           <tr>
-              <th>produit</th>
-              <th>Quantité </th>
-              <th>Prix</th>
-              <th>Total</th>
+               <th class="col-2">produit</th><!--col-2 -->
+              <th class="col-2">Nom </th>
+              <th class="col-2">Couleur </th>
+              <th class="col-2">Quantité </th>
+              <th class="col-2">Prix</th>
+              <th class="col-2">Sous-total</th>
           </tr>
-      <tbody id="tbody_produit" >    
-      </tbody>    
-      </thead>
+      </thead>    
+      
+      <tbody id="tbody_produit" > 
+        <!------ insertion du panier ----> 
+        
+      </tbody>   
+      
      
-    </table>
    
-    </section>  
+    </table>
     
-    <section id="section-commande">
+  <table class="col-12">
+    <tfoot  >
+      <tr class="">
+          <th colspan="0" class="col-8" ></th>
+          <th colspan="0" class="col-2">Total : </th>
+          <th colspan="0" class="col-2" id="totalPrice">2 495,00&nbsp;€</th>
+      </tr>
+    </tfoot>    
+  </table>
+   </section>    
+  
+  
+
+   
+  <section id="section_button_valider_vider_panier">
+     
+        <button type="submit" class="btn btn-secondary  col-2 mx-5" >Valider le panier</button>
+        <button type="button" class="btn btn-danger col-2 mx-5" >Vider le panier</button>
+  
+  </section>    
+      
+  
+    
+    
+  <section id="section-commande">
     
         <h2>Votre adresse de livraison</h2>
       <form >
@@ -65,7 +94,7 @@
       </form>
     
     </section>
-   </div> 
+    </div> 
 
        
              

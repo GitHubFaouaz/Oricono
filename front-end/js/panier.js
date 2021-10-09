@@ -29,10 +29,12 @@ let strcutureProduitPanier = [];
   ` 
   
   <tr>
-    <td>${produitEnregistreDansLocalStorage[a].image}</td>
-    <td>${produitEnregistreDansLocalStorage[a].Quantite}</td>
-    <td>${produitEnregistreDansLocalStorage[a].price}</td>
-    <td>Total</td>
+    <td class="col-2">${produitEnregistreDansLocalStorage[a].image}</td>
+    <td class="col-2">${produitEnregistreDansLocalStorage[a].nameProduitSelectionne}</td>
+    <td class="col-2">${produitEnregistreDansLocalStorage[a].couleur}</td>
+    <td class="col-2">${produitEnregistreDansLocalStorage[a].Quantite}</td>
+    <td class="col-2">${produitEnregistreDansLocalStorage[a].price}</td>
+    <td class="col-2">Total</td>
   </tr>
 
   
@@ -49,3 +51,20 @@ let strcutureProduitPanier = [];
   
   
 } 
+//***********************************bouton suprimer  video 88  */
+
+
+//**********buton pour vider entierement le panier  **********************/
+function toEmptyCart() {
+
+  // Lorsque qu'on clique sur le bouton, le panier se vide ainsi que le localStorage
+  const buttonToEmptyCart = document.querySelector(".btn_panier_vide");
+  buttonToEmptyCart.addEventListener("click", () => {
+    //localStorage.clear();
+    localStorage.removeItem("key_produit");
+
+    window.location.href='panier.html';
+  });
+}
+// const buttonToEmptyCart = document.querySelector(".btn btn-secondary");
+// const buton_vider_panier =
