@@ -16,7 +16,7 @@
           <div id="header-container">
             <nav class="navbar">
                 <a href="../index.html">Orinours</a>
-                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
             </nav>    
           </div> 
         </div>
@@ -52,7 +52,7 @@
       <tr class="">
           <th colspan="0" class="col-8" ></th>
           <th colspan="0" class="col-2">Total : </th>
-          <th colspan="0" class="col-2" id="totalPrice">2 495,00&nbsp;€</th>
+          <th colspan="0" class="col-2" id="totalPrice">0€</th>
       </tr>
     </tfoot>    
   </table>
@@ -64,7 +64,7 @@
   <section id="section_button_valider_vider_panier">
      
         <button type="submit" class="btn btn-secondary  col-2 mx-5" >Valider le panier</button>
-        <button type="button" class="btn btn-danger col-2 mx-5" >Vider le panier</button>
+        <button type="button" class="btn btn-danger btn_panier_vide col-2 mx-5"  >Vider le panier</button>
   
   </section>    
       
@@ -76,17 +76,17 @@
         <h2>Votre adresse de livraison</h2>
       <form >
         <div class="div-label">
-          <div><label for="firsName">Prénom</label><input type="text" name="firsName"></div> 
-          <div><label for="lastName">Nom</label><input type="text" name="lastName"></div>  
-          <div><label for="email">Adresse e-mail</label><input type="text" name="email"></div>
+          <div><label for="firsName">Prénom</label><input type="text" name="firsName" id="id_prenom"></div> 
+          <div><label for="lastName">Nom</label><input type="text" name="lastName" id="id_nom"></div>  
+          <div><label for="email">Adresse e-mail</label><input type="text" name="email" id="id_email"></div>
        </div>  
        <div class="div-label">
-        <div><label for="adresse">Adresse</label><input type="text" name="adresse"></div>
-        <div><label for="codePostale">Code postale</label><input type="number" name="codePostale"></div>
-        <div><label for="ville">Ville</label><input type="text" name="ville"></div>
+        <div><label for="adresse">Adresse</label><input type="text" name="adresse" id="id_adresse"></div>
+        <div><label for="codePostale">Code postale</label><input type="number" name="codePostale" id="id_codePostale"></div>
+        <div><label for="ville">Ville</label><input type="text" name="ville" id="id_ville"></div>
       </div>
        <div id="submit_commande"> 
-         <input type="submit" value="Finaliser la commande">
+         <input type="submit" value="Finaliser la commande" id="Valider_Panier_Js">
        </div>    
         
 

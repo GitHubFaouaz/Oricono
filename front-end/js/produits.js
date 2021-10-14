@@ -32,20 +32,22 @@ const idProduitSelectionne = urlSearchParams.get("name_id");  //name_id la key d
 
 // fonction pour  la récupération  du produit séléctionné 
 
-function addProduit(data) { // a partir de  la class product  
+function addProduit(data) { //  
 
 // inserer les informations du produit séléctionné 
 
 const imageProduitSelectionne = document.getElementById("imageProuduit-js");
 imageProduitSelectionne.innerHTML += `
 <img src="${data.imageUrl}" alt="${data.name}">`; 
+
 const nameProduitSelectionne = document.getElementById("NameProuduit-js");
 nameProduitSelectionne.innerHTML += `
 <h1>${data.name}</h1>`; 
+
 const descriptionProduitSelectionne = document.getElementById("descProuduit-js");
 descriptionProduitSelectionne.innerHTML += `
- <p>${data.description}</p> <span > ${formatPrice(data.price)}</span> <!--${(data.price)/100} €-->
-`;// utilisation de la function formattPrice avec Product.price comme prarametre 
+ <p>${data.description}</p> <span > ${formatPrice(data.price)}</span>
+`;
 
 const colorProduitSelectionne = document.getElementById("colorProuduit-js");
 for (let i = 0; i < data.colors.length; i++) {
@@ -53,7 +55,7 @@ for (let i = 0; i < data.colors.length; i++) {
 let option = document.createElement("option");
 option.innerText = data.colors[i];
 colorProduitSelectionne.appendChild(option);
-   }
+}
 //selection du button Ajouter l'article au panier 
    const btn_envoyerPanier = document.querySelector("#btn_envoyerPanier"); // doit etre dans la function 
 btn_envoyerPanier.addEventListener("click",(event) =>{
@@ -63,28 +65,27 @@ event.preventDefault();// pour annuller l'effet par defaut
 
 //recuperation des valeurs du formulaire 
 // 1)Selection de l'id du formulaire quantité
-const idQuantite = document.querySelector("#quantiteBear");
-const choixQuantité = idQuantite.value;//value pour la quantitée selectionnée  
+const choixQuantité = document.querySelector("#quantiteBear");
+ 
 
 // 2)Selection de l'id du formulaire Couleur
-const idCouleur = document.querySelector("#colorProuduit-js");//.value
-//mettre le choix de l'utisateur dans une variable 
-const choixCouleur = idCouleur.value;// value pour la couleur selectionnée  
+const choixCouleur = document.querySelector("#colorProuduit-js");//.value
+
+
 
 // .......................gestion du panier AddToCart..................... 
-//-- recuperation des données selectionnées par l'utilisateur  et envoi du panier 
+
 //selection du button Ajouter l'article au panier 
 let infoProduitSelectionne = {
    id_ProduitSelectionne  :idProduitSelectionne,
    nameProduitSelectionne : data.name,
-   Quantite :choixQuantité,
-   couleur :choixCouleur ,
-   price :`${formatPrice(data.price)}`,
-   image : `
-   <img src="${data.imageUrl}" alt="${data.name}">`
+   Quantite :choixQuantité.value,
+   couleur :choixCouleur.value,
+   price :data.price,
+   imageUrl : data.imageUrl
+   
 }
 
-//console.log( infoProduitSelectionne);
 
 // .......................localStorage..................................
 // .......................stocker la récupération des valeurs dans le local storage 
@@ -100,7 +101,7 @@ let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_pro
 const ajoutProduitLocalStorage = () => {
    //ajout dans le tableau de l'objet avec les values choisi par l'utilisateur  
    produitEnregistreDansLocalStorage.push(infoProduitSelectionne);//push pour mettre dans un tableau 
-   //la transformation en forma json et l'envoyer dans la la key_produit du localStorage 
+   //la transformation en format json et l'envoyer dans la la key_produit du localStorage 
    localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));//storage.setItem(nomClé, valeurClé); permet d'ajouter à l'emplacement de stockage 
  //JSON.stringify() convertit une valeur JavaScript en chaîne JSON
   
@@ -110,8 +111,8 @@ const ajoutProduitLocalStorage = () => {
  function popupConfirmation (){
  
    if(window.confirm(`${infoProduitSelectionne.nameProduitSelectionne} a été ajouté au panier
- Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.confirm Affiche un dialogue modal avec un message et deux boutons, OK et Annuler.
-   window.location.href ="../html/panier.html";                          /*L'objet location contient des informations sur l'URL actuelle. L'objet location fait partie de l'objet window et est accessible via la propriété window. location.  
+   Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.confirm Affiche un dialogue modal avec un message et deux boutons, OK et Annuler.
+   window.location.href = "../html/panier.html";                          /*L'objet location contient des informations sur l'URL actuelle. L'objet location fait partie de l'objet window et est accessible via la propriété window. location.  
    et fournit des methodes pour modifier cette url qui peut etre utilisée pour charger une page */
    }else{
    window.location.href ="../index.html"; 

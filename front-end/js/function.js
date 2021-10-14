@@ -3,8 +3,52 @@
 // Formatage du prix pour l'afficher en euros
 function formatPrice(price) {
     let priceFormatted = price / 100;
-    return priceFormatted + " €";
+    return priceFormatted + "€";
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// formulair
+function test () {
+  const infoClients = {
+    prenom: document.getElementById("id_prenom").value,
+    nom: document.getElementById("id_nom").value,
+    email: document.getElementById("id_email").value,
+    adresse: document.getElementById("id_adresse").value,
+    code_postale: document.getElementById("id_codePostale").value,
+    ville: document.getElementById("id_ville").value
+    
+  
+  }
+};
+
+
+
+
+
+
 
 //Fonction ajouter un produit sélectionné dans le localStorage 
 /*const ajoutProduitLocalStorage = () => {
