@@ -7,6 +7,20 @@ function formatPrice(price) {
   }
 
 
+//création class pour la fabriquer l'objet avec les valeur du formulaire
+
+class formulaire {
+
+ constructor(){ // pas besoin de paremetre puique les valeurs sont directement inserées 
+
+  this.prenom = document.getElementById("id_prenom").value,
+  this.nom = document.getElementById("id_nom").value,
+  this.email = document.getElementById("id_email").value,
+  this.adresse = document.getElementById("id_adresse").value,
+  this.code_postale = document.getElementById("id_codePostale").value,
+  this.ville = document.getElementById("id_ville").value
+    }
+}
 
 
 
@@ -28,21 +42,6 @@ function formatPrice(price) {
 
 
 
-
-
-// formulair
-function test () {
-  const infoClients = {
-    prenom: document.getElementById("id_prenom").value,
-    nom: document.getElementById("id_nom").value,
-    email: document.getElementById("id_email").value,
-    adresse: document.getElementById("id_adresse").value,
-    code_postale: document.getElementById("id_codePostale").value,
-    ville: document.getElementById("id_ville").value
-    
-  
-  }
-};
 
 
 

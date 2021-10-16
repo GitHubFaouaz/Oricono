@@ -313,6 +313,15 @@ article .nom-prix {
   border-radius: 7px;
 }
 
+#section-commande form #submit_commande {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 #recap_commande {
   display: -webkit-box;
   display: -ms-flexbox;

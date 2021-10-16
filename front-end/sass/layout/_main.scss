@@ -250,11 +250,16 @@ article{
                     border-radius: 7px;
                 }
             }
+
              
         }
- 
+    #submit_commande{
+    display: flex;
+    justify-content: space-between;
+        
+        }
     }
-   
+    
 }
 
 //.....................page confirmation................................
