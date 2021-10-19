@@ -126,14 +126,14 @@ btnValiderPanier.addEventListener("click", (e) => {
 
   const textElse = (value) => {
 
-    return `${value} :chiffre et symbole ne sont pas autorisé \n ne pas depasser 20 caractere , minimum 3 `;
+    return `${value} n\'est pas valide  `;
 
   };
 
   
   const regexPrenomNomVille = (value) => { //une expression de function =  function dans une variable    VALUE = lePrenom OU NOM OU VILLE   qui ne doivent pas comprendre de chiffre 
 
-    return /^[A-Za-z]{3,20}$/.test(value);
+    return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
 
   };
   
@@ -164,8 +164,8 @@ btnValiderPanier.addEventListener("click", (e) => {
       return true;
     } else {
 
-
-      alert(textElse("prenom"));
+      document.querySelector('.erreur').innerHTML = `le ${textElse("prenom")}`
+      
       return false;
     }
   };
@@ -174,12 +174,12 @@ btnValiderPanier.addEventListener("click", (e) => {
     const leNom = formulaireValues.nom;
 
     if (regexPrenomNomVille(leNom)) { //if(/^[A-Za-z]{3,20}$/.test(lePrenom)){ 
-
+     
       return true;
     } else {
-
-
-      alert(textElse("nom"));
+   
+      document.querySelector('.erreur').innerHTML = `le ${textElse("nom")}`;
+      
       return false;
     }
   };
@@ -188,12 +188,12 @@ btnValiderPanier.addEventListener("click", (e) => {
     const laVille = formulaireValues.ville;
 
     if (regexPrenomNomVille(laVille)) { //if(/^[A-Za-z]{3,20}$/.test(lePrenom)){ 
-
+      
       return true;
     } else {
 
-
-      alert(textElse("la ville n'est pas valide"));
+      document.querySelector('.erreur').innerHTML = `le ${textElse("ville")} `;
+     
       return false;
     }
   };
@@ -206,8 +206,8 @@ btnValiderPanier.addEventListener("click", (e) => {
       return true;
     } else {
 
-
-      alert("veuillez entrer un code postale valide");
+      document.querySelector('.erreur').innerHTML = `le ${textElse("code_postale")}`;
+      
       return false;
     }
   };
@@ -221,7 +221,7 @@ btnValiderPanier.addEventListener("click", (e) => {
     } else {
 
 
-      alert("le email n'est pas valide");
+      document.querySelector('.erreur').innerHTML = `le ${textElse("email")}`;
       return false;
     }
   };
@@ -235,8 +235,8 @@ btnValiderPanier.addEventListener("click", (e) => {
       return true;
     } else {
 
-
-      alert("l'adresse n'est  valide");
+      document.querySelector('.erreur').innerHTML = `l' ${textElse("adresse")} `;
+    
       return false;
     }
   };
@@ -253,22 +253,68 @@ btnValiderPanier.addEventListener("click", (e) => {
 
   } else {
 
-    //print(" veuillez bien remplire le formulaire");
+     alert("veuillez bien remplir le formulaire");
   }
-
-
-
-  /* /^  $/ debut et fin d'un regex et .test la methode  
+   /* /^  $/ debut et fin d'un regex et .test la methode  
    [A-Z]pour controler toutes les lettres en majuscule 
    [a-z]pour controler toutes les lettres en minuscule
-    {3,20} le quatificateur un maximun de 20lettres  
-    */
+   {3,20} le quatificateur un maximun de 20lettres  
+   ?= 0 ou 1 fois
+   ([-]{0,1}) -  accepté 0 ou 1fois  
+   */
+
+
+// ******************************************// on envoie les donnés en POST ********************   
+
+const aEnvoyer = {
+ 
+  produitEnregistreDansLocalStorage,
+  formulaireValues,
+
+};
+console.log(aEnvoyer);
+
+
+ 
+   const options =  {
+    method: "POST",
+    body: JSON.stringify(aEnvoyer), // il faut transformer l'objet javaScript en json 
+    Headers:{
+         "content-type" : "application/json",
+
+    },
+  };
+   
+   
+     // Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
+     fetch("http://localhost:3000/api/teddies/order", options)
+     .then((response) => response.json())
+     .then((data) => {
+       localStorage.clear();
+       console.log(data)
+       localStorage.setItem("idProduitConfirm", JSON.stringify(aEnvoyer));
+       
+
+       //  On peut commenter cette ligne pour vérifier le statut 201 de la requête fetch. Le fait de préciser la destination du lien ici et non dans la balise <a> du HTML permet d'avoir le temps de placer les éléments comme l'orderId dans le localStorage avant le changement de page.
+        document.location.href = "../html/confirmation.html";
+     })
+     .catch((err) => {
+       alert("Il y a eu une erreur : " + err);
+     });
+
+
+
+
+
+
+
+
 
 
 });
 
 
-// ************************mettre le contenu du localStorage dans les champs du formulaire********
+// ************************ bonus mettre le contenu du localStorage dans les champs du formulaire********
 
 // recuperation des valeures du formulaire dans le localStorage ( celui au dessus n'est pas accessible)
 // const dataLocalStorage = JSON.parse(localStorage.getItem('formulaireValues')); 
@@ -277,7 +323,6 @@ btnValiderPanier.addEventListener("click", (e) => {
 //let = document.getElementById("id_prenom").setAttribute('value',dataLocalStorage.prenom);
 
 // *****************************Controle validation formulaire du champ nom et prénom avant envoi dans local storage ***************
-
 
 
 
