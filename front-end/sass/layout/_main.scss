@@ -4,7 +4,7 @@
 }
 .contener-bear-photo{
  
-    background-image:url("/front-end/img/teddy_4.jpg");
+    // background-image:url("/front-end/img/teddy_4.jpg");
     background-repeat: repeat;
     background-size: 50%;
 
@@ -239,7 +239,9 @@ article{
         .div-label {
            display: flex;
            justify-content: space-between;
-           
+        #adresse{
+          flex:0.93 ;
+        }   
            div{
             display: flex;
                  width: 30%;

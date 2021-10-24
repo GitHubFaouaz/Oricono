@@ -1,14 +1,7 @@
-// concerne le panier 
-let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));// Pour stocker les produits selectionnees 
-//La méthode getItem() de l'interface Storage renvoie la valeur associée à la clé passée en paramètre.
-
-// console.log(produitEnregistreDansLocalStorage);
-
-
 //...................................AFFICHAGE  DES PRODUITS DE PANIER.........................................//
-//section de la classe ou je vais injecter le code HTML
+//section de la classe ou je vais injecter le code HTML(le container panier ) 
 
-const positionElementHtml = document.querySelector("#section-info-panier");// le container panier 
+const positionElementHtml = document.querySelector("#section-info-panier");
 
 
 //si le panier est vide : afficher panier vide 
@@ -20,91 +13,26 @@ if (produitEnregistreDansLocalStorage === null) {
    <div>`;
   positionElementHtml.innerHTML = panier_vide;
 } else {
+
   //si le panier n'est pas vide :afficher les produits du localStorage 
+ 
+     for( af of produitEnregistreDansLocalStorage ){
+      produitPanier(af); 
 
-
-  for (a = 0; a < produitEnregistreDansLocalStorage.length; a++) {  // construction de la structure du produit a chaque tour
-
-    let calcul_sous_total = produitEnregistreDansLocalStorage[a].Quantite * produitEnregistreDansLocalStorage[a].price;
-
-    const elementBody = document.querySelector("#tbody_produit");
-    elementBody.innerHTML += ` 
-  
-  <tr>
-    <td class="col-2"><img src="${produitEnregistreDansLocalStorage[a].imageUrl}"></td>
-    <td class="col-2">${produitEnregistreDansLocalStorage[a].nameProduitSelectionne}</td>
-    <td class="col-2">${produitEnregistreDansLocalStorage[a].couleur}</td>
-    <td class="col-2">${produitEnregistreDansLocalStorage[a].Quantite}</td>
-    <td class="col-2">${formatPrice(produitEnregistreDansLocalStorage[a].price)}</td>
-    <td class="col-2 " id='sous_total'>${formatPrice(calcul_sous_total)}</td>
-  </tr>
-
-  `;
-    calcul_sous_total = calcul_sous_total
-    console.log(`${formatPrice(calcul_sous_total)}`);
 
   }
-
-
 }
 //**********************************Le montant total  du panier **********************/
 
 
-// let tabPrixPanier = [] ;
-
-//  for( let x = 0 ; x < produitEnregistreDansLocalStorage.length; x ++  ){
-
-//        let prix_chaque_produit_panier = produitEnregistreDansLocalStorage[x].price;
-//        tabPrixPanier.push(prix_chaque_produit_panier)
-
-
-
-//  }
-//  const reducer = (previousValue, currentValue) => previousValue + currentValue;
-//  let prixTotal = tabPrixPanier.reduce(reducer) ;
-//   function totaPrice (){
-
-
-//     return recupId ;
-
-
-//  }
-//   let recupId = document.getElementById('sous_total').value;
-//   console.log(recupId);
-//     function getValue() {
-//     // Sélectionner l'élément input et récupérer sa valeur
-//     var input = document.getElementById("sous_total").value;
-//     // Afficher la valeur
-
-// }
-
-// let fun = getValue() 
-// console.log(fun);
-//injection dans la page html 
-
-// const injectPrixTotal = document.querySelector('#totalPrice');
-// injectPrixTotal.innerHTML = `${formatPrice(prixTotal)}`; 
-
-
-
-
-
-
-
-
-
 
 //**********buton pour vider entierement le panier  **********************/
-
-
 // Lorsque qu'on clique sur le bouton, le panier se vide ainsi que le localStorage
 const bouton_vide_panier = document.querySelector(".btn_panier_vide");
 bouton_vide_panier.addEventListener("click", (e) => {
   e.preventDefault;
-  localStorage.clear();//La méthode clear() permet de retirer tous les éléments d'un ensemble Set.
-  //localStorage.removeItem("key_produit");
+  viderPanier();
 
-  window.location.href = 'panier.html';//href a html 
 });
 
 //  ********************************************* validation du formulaire et envoie en POST ********************************
@@ -119,103 +47,73 @@ btnValiderPanier.addEventListener("click", (e) => {
 
   const formulaireValues = new formulaire();
 
-
-
-
   //..................................Regex Lors d'un clic, si l'un des champs n'est pas bien rempli .................... 
-
+  
   const textElse = (value) => {
 
     return `${value} n\'est pas valide  `;
 
   };
-
-  
-  const regexPrenomNomVille = (value) => { //une expression de function =  function dans une variable    VALUE = lePrenom OU NOM OU VILLE   qui ne doivent pas comprendre de chiffre 
+  const regexPrenomNomVille = (value) => {
 
     return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
 
   };
-  
-  const regexCodePostale = (value) => { //function dans une variable    
+  const regexEmail = (value) => {
 
-    return /^[0-9]{5}$/.test(value);//0 a 9 chiffres autorisé avec 5 comme quantité 95360
+    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
+
+  };
+  const regexAdresse = (value) => {
+
+    return /^[A-Za-z0-9À-ÿ\s]{5,50}$/.test(value);
 
   };
 
-  const regexEmail = (value) => { //function dans une variable    
 
-    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);//0 a 9 chiffres autorisé avec 5 comme quantité 95360
-
-  };
-  
-  const regexAdresse = (value) => { //function dans une variable    
-
-    return /^[A-Za-z0-9À-ÿ\s]{5,50}$/.test(value);//\s pour autoriser les espaces  À-ÿ pour autoriser les accents
-
-  };
-  
-  
   function prenomControle() {
-    const lePrenom = formulaireValues.prenom; //appelle du nom de la page du formulaire pour le controle 
+    const lePrenom = formulaireValues.prenom;
 
-    if (regexPrenomNomVille(lePrenom)) { //if(/^[A-Za-z]{3,20}$/.test(lePrenom)){ 
+    if (regexPrenomNomVille(lePrenom)) {
 
       return true;
     } else {
 
       document.querySelector('.erreur').innerHTML = `le ${textElse("prenom")}`
-      
+
       return false;
     }
   };
-
   function nomControle() {
     const leNom = formulaireValues.nom;
 
-    if (regexPrenomNomVille(leNom)) { //if(/^[A-Za-z]{3,20}$/.test(lePrenom)){ 
-     
+    if (regexPrenomNomVille(leNom)) {
+
       return true;
     } else {
-   
+
       document.querySelector('.erreur').innerHTML = `le ${textElse("nom")}`;
-      
+
       return false;
     }
   };
-  
   function villeControle() {
     const laVille = formulaireValues.ville;
 
-    if (regexPrenomNomVille(laVille)) { //if(/^[A-Za-z]{3,20}$/.test(lePrenom)){ 
-      
+    if (regexPrenomNomVille(laVille)) {
+
       return true;
     } else {
 
       document.querySelector('.erreur').innerHTML = `le ${textElse("ville")} `;
-     
+
       return false;
     }
   };
-  
-  function codePostaleControle() {
-    const leCodePostale = formulaireValues.code_postale; 
-
-    if (regexCodePostale(leCodePostale)) { //controle du code postale 
-
-      return true;
-    } else {
-
-      document.querySelector('.erreur').innerHTML = `le ${textElse("code_postale")}`;
-      
-      return false;
-    }
-  };
- 
   function emailControle() {
-    const leEmail = formulaireValues.email; 
+    const leEmail = formulaireValues.email;
 
-    if (regexEmail(leEmail)) { 
+    if (regexEmail(leEmail)) {
 
       return true;
     } else {
@@ -225,104 +123,103 @@ btnValiderPanier.addEventListener("click", (e) => {
       return false;
     }
   };
-
-  
   function adresseControle() {
-    const adresse = formulaireValues.adresse; 
+    const adresse = formulaireValues.adresse;
 
-    if (regexAdresse(adresse)) { 
+    if (regexAdresse(adresse)) {
 
       return true;
     } else {
 
       document.querySelector('.erreur').innerHTML = `l' ${textElse("adresse")} `;
-    
+
       return false;
     }
   };
-  
 
 
+
+  // .............................si toute les conditions sont reunies...............................  
+
+  if (prenomControle() & nomControle() & villeControle() & emailControle() & adresseControle()) {
+
+   
+    // Si le formulaire est valide, le tableau productsId contiendra un tableau d'objet qui sont les produits acheté, et order contiendra ce tableau ainsi que l'objet qui contient les infos de l'acheteur
+    let productsId = [];
+    for ( let product of produitEnregistreDansLocalStorage ){
+     
+        productsId.push(product.id)
  
-// .............................si toute les conditions sont reunies...............................  
- 
-  if (prenomControle() & nomControle() & villeControle()  & codePostaleControle() & emailControle() & adresseControle() ) {  
+    }
+    
+    const order = {
+      contact: {
+        firstName: formulaireValues.nom,
+        lastName: formulaireValues.prenom,
+        city: formulaireValues.ville,
+        address: formulaireValues.adresse,
+        email: formulaireValues.email,
+      },
+      products: productsId,
+    };
+    
+    // ******************************************// on envoie les donnés en POST ********************       
+    
+    const options = {
+      method: "POST",
+      body: JSON.stringify(order),
+      headers: { "Content-Type": "application/json" },
+    };
+    console.log(options,'faouaz');
 
-    //si true envoyer les donnés du formulaire dans le localStorage 
-    localStorage.setItem('formulaire', JSON.stringify(formulaireValues));
+    // Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
+    fetch("http://localhost:3000/api/teddies/order", options)
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.clear();
+        localStorage.setItem("order", );
+
+
+
+        document.location.href = "../html/confirmation.html";
+
+      })
+      .catch((err) => {
+        alert("Il y a eu une erreur : " + err);
+      });
 
   } else {
 
-     alert("veuillez bien remplir le formulaire");
+    alert("veuillez bien remplir le formulaire");
   }
-   /* /^  $/ debut et fin d'un regex et .test la methode  
-   [A-Z]pour controler toutes les lettres en majuscule 
-   [a-z]pour controler toutes les lettres en minuscule
-   {3,20} le quatificateur un maximun de 20lettres  
-   ?= 0 ou 1 fois
-   ([-]{0,1}) -  accepté 0 ou 1fois  
-   */
-
-
-// ******************************************// on envoie les donnés en POST ********************   
-
-const aEnvoyer = {
- 
-  produitEnregistreDansLocalStorage,
-  formulaireValues,
-
-};
-console.log(aEnvoyer);
-
-
- 
-   const options =  {
-    method: "POST",
-    body: JSON.stringify(aEnvoyer), // il faut transformer l'objet javaScript en json 
-    Headers:{
-         "content-type" : "application/json",
-
-    },
-  };
-   
-   
-     // Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
-     fetch("http://localhost:3000/api/teddies/order", options)
-     .then((response) => response.json())
-     .then((data) => {
-       localStorage.clear();
-       console.log(data)
-       localStorage.setItem("idProduitConfirm", JSON.stringify(aEnvoyer));
-       
-
-       //  On peut commenter cette ligne pour vérifier le statut 201 de la requête fetch. Le fait de préciser la destination du lien ici et non dans la balise <a> du HTML permet d'avoir le temps de placer les éléments comme l'orderId dans le localStorage avant le changement de page.
-        document.location.href = "../html/confirmation.html";
-     })
-     .catch((err) => {
-       alert("Il y a eu une erreur : " + err);
-     });
-
-
-
-
-
-
-
 
 
 
 });
 
 
-// ************************ bonus mettre le contenu du localStorage dans les champs du formulaire********
 
-// recuperation des valeures du formulaire dans le localStorage ( celui au dessus n'est pas accessible)
-// const dataLocalStorage = JSON.parse(localStorage.getItem('formulaireValues')); 
 
-// mettre les valeures du localStorage dans les champs du formulaire
-//let = document.getElementById("id_prenom").setAttribute('value',dataLocalStorage.prenom);
 
-// *****************************Controle validation formulaire du champ nom et prénom avant envoi dans local storage ***************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

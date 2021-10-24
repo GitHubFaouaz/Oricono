@@ -23,7 +23,6 @@ header .navbar a {
 }
 
 .contener-bear-photo {
-  background-image: url("/front-end/img/teddy_4.jpg");
   background-repeat: repeat;
   background-size: 50%;
   height: 30vh;
@@ -294,6 +293,12 @@ article .nom-prix {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+#section-commande form .div-label #adresse {
+  -webkit-box-flex: 0.93;
+      -ms-flex: 0.93;
+          flex: 0.93;
 }
 
 #section-commande form .div-label div {
