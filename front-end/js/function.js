@@ -13,10 +13,6 @@ function addTeddies(produit){
     
   </div>
 </article>`;
-
-
-     
-
 }
 
 //fonction description des produit pour la page produit
@@ -43,13 +39,30 @@ function addProduit(produitInfo) { //
  colorProduitSelectionne.appendChild(option);
    }
  } 
-
  // Formatage du prix pour l'afficher en euros
 function formatPrice(price) {
     let priceFormatted = price / 100;
     return priceFormatted + "€";
   }
+//Fonction ajouter le produit sélectionné dans le localStorage 
+function ajoutProduitLocalStorage (ajoutLocalStorage) {
+    produitEnregistreDansLocalStorage.push(ajoutLocalStorage);
+    localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));
+  
+   
+}
+ // function popup 
+ function popupConfirmation (nom){
+  
+  if(window.confirm(`${nom} a été ajouté au panier
+Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.confirm Affiche un dialogue modal avec un message et deux boutons, OK et Annuler.
+ window.location.href ="../html/panier.html";                          
+ 
+  }else{
+ window.location.href ="../index.html"; 
+ }
 
+}
   // création de la class produit
 class Product {
   constructor(id, name, description, price, quantity, imgurl) {
@@ -100,29 +113,6 @@ function viderPanier() {
   localStorage.clear();
   location.reload();
 }
-function addProduit(produitInfo) { //  
-  // inserer les informations du produit séléctionné 
-    const imageProduitSelectionne = document.getElementById("imageProuduit-js");
- imageProduitSelectionne.innerHTML += `
- <img src="${produitInfo.imageUrl}" alt="${produitInfo.name}">`; 
- 
- const nameProduitSelectionne = document.getElementById("NameProuduit-js");
- nameProduitSelectionne.innerHTML += `
- <h1>${produitInfo.name}</h1>`; 
- 
- const descriptionProduitSelectionne = document.getElementById("descProuduit-js");
- descriptionProduitSelectionne.innerHTML += `
-  <p>${produitInfo.description}</p> <span > ${formatPrice(produitInfo.price)}</span>
- `;
- 
- const colorProduitSelectionne = document.getElementById("colorProuduit-js");
- for (let i = 0; i < produitInfo.colors.length; i++) {
- 
- let option = document.createElement("option");
- option.innerText = produitInfo.colors[i];
- colorProduitSelectionne.appendChild(option);
-   }
- } 
 
 
 

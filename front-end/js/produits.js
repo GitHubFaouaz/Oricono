@@ -7,75 +7,71 @@ const idProduitSelectionne = urlSearchParams.get("name_id");
 fetch (`http://localhost:3000/api/teddies/${idProduitSelectionne}`)
  .then((response) => response.json())
  .then((data) => { 
-  for( const property in data ){
-    addProduit( property) 
-  }
+   let produitInfo =data ;
+   addProduit(produitInfo);
    
   
-
    const btn_envoyerPanier = document.querySelector("#btn_envoyerPanier"); // doit etre dans la function 
-btn_envoyerPanier.addEventListener("click",(event) =>{
-event.preventDefault();    
-
-//recuperation des valeurs Quantités et Couleurs du formulaire 
-const choixQuantité = document.querySelector("#quantiteBear");
-const choixCouleur = document.querySelector("#colorProuduit-js");
-
-//selection de l'article pour le  panier 
-
-let infoProduitSelectionne = {
-  id: idProduitSelectionne,
-  name: produitInfo.name,
-  desc : produitInfo.description,
-  price : produitInfo.price,
-  color : choixCouleur.value,
-  Quantite: choixQuantité.value,
-  imageUrl : produitInfo.imageUrl
-
-}
-
-// .......................localStorage..................................
-let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
-
-
-//Fonction ajouter le produit sélectionné dans le localStorage 
-  const ajoutProduitLocalStorage = () => {
-  produitEnregistreDansLocalStorage.push(infoProduitSelectionne);
-  localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));
-
- 
-}
-// function popup 
-function popupConfirmation (){
-
-   if(window.confirm(`${infoProduitSelectionne.name} a été ajouté au panier
- Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.confirm Affiche un dialogue modal avec un message et deux boutons, OK et Annuler.
-  window.location.href ="../html/panier.html";                          
+  btn_envoyerPanier.addEventListener("click",(event) =>{
+  event.preventDefault();    
   
-   }else{
-  window.location.href ="../index.html"; 
+  //recuperation des valeurs Quantités et Couleurs du formulaire 
+  const choixQuantité = document.querySelector("#quantiteBear");
+  const choixCouleur = document.querySelector("#colorProuduit-js");
+  
+  //selection de l'article pour le  panier 
+  
+  let infoProduitSelectionne = {
+    id: idProduitSelectionne,
+    name: produitInfo.name,
+    desc : produitInfo.description,
+    price : produitInfo.price,
+    color : choixCouleur.value,
+    Quantite: choixQuantité.value,
+    imageUrl : produitInfo.imageUrl
+  
   }
-
- }
-
-//s'il y a deja des produits d'enregistré dans le local storage 
-
-if(produitEnregistreDansLocalStorage){
-  ajoutProduitLocalStorage();
- 
-
-    popupConfirmation ();
+  
+  // .......................localStorage..................................
+  let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
+  function ajoutProduitLocalStorage (infoProduitSelectionne) {
+    produitEnregistreDansLocalStorage.push(infoProduitSelectionne);
+    localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));
+  
+   
 }
-//s'il n'y a deja des produits d'enregistré dans le local storage 
-else{
-  produitEnregistreDansLocalStorage = []; 
-  ajoutProduitLocalStorage();
 
-   popupConfirmation ();
-} 
 
-})
+
+
+
+ //s'il y a deja des produits d'enregistré dans le local storage 
+  if(produitEnregistreDansLocalStorage){
+    
+    ajoutProduitLocalStorage();
+   
+  
+    popupConfirmation (infoProduitSelectionne.name);
+  }
+  //s'il n'y a deja des produits d'enregistré dans le local storage 
+  else{
+    produitEnregistreDansLocalStorage = []; 
+    ajoutProduitLocalStorage();
+
+  
+      popupConfirmation (infoProduitSelectionne.name);
+  } 
+  
   })
+ })
+  
+  
+  
+  
+  
+  
+
+
  
  
   
