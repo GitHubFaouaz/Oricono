@@ -17,7 +17,7 @@ if (produitEnregistreDansLocalStorage === null) {
   //si le panier n'est pas vide :afficher les produits du localStorage 
  
      for( af of produitEnregistreDansLocalStorage ){
-      produitPanier(af); 
+       produitPanier(af); 
 
 
   }
@@ -170,15 +170,16 @@ btnValiderPanier.addEventListener("click", (e) => {
       body: JSON.stringify(order),
       headers: { "Content-Type": "application/json" },
     };
-    console.log(options,'faouaz');
+     let total = 10;
 
     // Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
     fetch("http://localhost:3000/api/teddies/order", options)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         localStorage.clear();
-        localStorage.setItem("order", );
-
+        localStorage.setItem("order", data.orderId);
+        localStorage.setItem("total",total);
 
 
         document.location.href = "../html/confirmation.html";

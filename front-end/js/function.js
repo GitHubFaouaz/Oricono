@@ -1,5 +1,10 @@
 let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
 //fonction des données de chaque produit pour la page index ( nom , prix  )
+function formatPrice(price) {
+  let priceFormatted = price / 100;
+  return priceFormatted + "€";
+}
+
 function addTeddies(produit){
 
 // recuperation des éléments dans le html   
@@ -40,10 +45,7 @@ function addProduit(produitInfo) { //
    }
  } 
  // Formatage du prix pour l'afficher en euros
-function formatPrice(price) {
-    let priceFormatted = price / 100;
-    return priceFormatted + "€";
-  }
+
 //Fonction ajouter le produit sélectionné dans le localStorage 
 function ajoutProduitLocalStorage (ajoutLocalStorage) {
     produitEnregistreDansLocalStorage.push(ajoutLocalStorage);
@@ -63,17 +65,7 @@ Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.con
  }
 
 }
-  // création de la class produit
-class Product {
-  constructor(id, name, description, price, quantity, imgurl) {
-      this.id = id;
-      this.name = name;
-      this.description = description;
-      this.price = +price;
-      this.quantity = +quantity;
-      this.imgurl = imgurl;
-  }
-}
+
 
 //création class pour la fabriquer l'objet avec les valeur du formulaire
 class formulaire {
@@ -115,8 +107,21 @@ function viderPanier() {
 }
 
 
+// **********************panier**************************
+// function qui a affiche le recaputatif de la commande
+function afficherCommande(numeroRef,totalmontant){
 
-
+  // afficher mes informations 
+  const informations = document.getElementById("recap_commande");
+  informations.innerHTML += `
+            <div id="confirm_commande">
+            <h2>Votre commande été prise en compte</h2>
+            <p class="">Le montant total est de : ${totalmontant} </p>            
+            <p class="">Votre numéro de commande est : ${numeroRef} </p>
+            </div>
+      
+      `;
+  }
 
 
 

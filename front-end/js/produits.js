@@ -34,21 +34,17 @@ fetch (`http://localhost:3000/api/teddies/${idProduitSelectionne}`)
   
   // .......................localStorage..................................
   let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
-  function ajoutProduitLocalStorage (infoProduitSelectionne) {
-    produitEnregistreDansLocalStorage.push(infoProduitSelectionne);
-    localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));
-  
-   
+ 
+function ajoutProduitLocalStorage (ajoutLocalStorage) {
+  produitEnregistreDansLocalStorage.push(ajoutLocalStorage);
+  localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));
+
+ 
 }
-
-
-
-
-
- //s'il y a deja des produits d'enregistré dans le local storage 
+//s'il y a deja des produits d'enregistré dans le local storage 
   if(produitEnregistreDansLocalStorage){
     
-    ajoutProduitLocalStorage();
+    ajoutProduitLocalStorage(infoProduitSelectionne );
    
   
     popupConfirmation (infoProduitSelectionne.name);
@@ -56,7 +52,7 @@ fetch (`http://localhost:3000/api/teddies/${idProduitSelectionne}`)
   //s'il n'y a deja des produits d'enregistré dans le local storage 
   else{
     produitEnregistreDansLocalStorage = []; 
-    ajoutProduitLocalStorage();
+    ajoutProduitLocalStorage(infoProduitSelectionne );
 
   
       popupConfirmation (infoProduitSelectionne.name);
