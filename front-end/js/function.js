@@ -14,7 +14,7 @@ function addTeddies(produit){
 <article >
   <a href="html/product.html?name_id=${produit._id}"><img src="${produit.imageUrl}" alt="${produit.name}"></a> 
   <div class="div-details-photo">
-     <p class="nom-prix">${produit.name}</span> <span>${formatPrice(produit.price)}</span></p>  
+     <p class="nom-prix"><span>${produit.name}</span> <span>${formatPrice(produit.price)}</span></p>  
     
   </div>
 </article>`;
