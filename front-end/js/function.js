@@ -1,10 +1,12 @@
 let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
-//fonction des données de chaque produit pour la page index ( nom , prix  )
+
+// ****************************index***************************
+// Formatage du prix pour l'afficher en euros
 function formatPrice(price) {
   let priceFormatted = price / 100;
   return priceFormatted + "€";
 }
-
+//fonction des données de chaque produit pour la page index ( nom , prix  )
 function addTeddies(produit){
 
 // recuperation des éléments dans le html   
@@ -19,6 +21,9 @@ function addTeddies(produit){
   </div>
 </article>`;
 }
+
+
+// ***************************produits************************
 
 //fonction description des produit pour la page produit
 function addProduit(produitInfo) { //  
@@ -44,7 +49,7 @@ function addProduit(produitInfo) { //
  colorProduitSelectionne.appendChild(option);
    }
  } 
- // Formatage du prix pour l'afficher en euros
+ 
 
 //Fonction ajouter le produit sélectionné dans le localStorage 
 function ajoutProduitLocalStorage (ajoutLocalStorage) {
@@ -67,18 +72,9 @@ Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.con
 }
 
 
-//création class pour la fabriquer l'objet avec les valeur du formulaire
-class formulaire {
 
- constructor(){ // pas besoin de paremetre puique les valeurs sont directement inserées 
 
-  this.prenom = document.getElementById("id_prenom").value,
-  this.nom = document.getElementById("id_nom").value,
-  this.email = document.getElementById("id_email").value,
-  this.adresse = document.getElementById("id_adresse").value,
-  this.ville = document.getElementById("id_ville").value
-    }
-}
+// **********************panier**************************
 
 // affiche les produits du localStorage dans le panier  
 function produitPanier(product) {
@@ -100,14 +96,49 @@ function produitPanier(product) {
  
 }
 
+function PrixTotal (array,prix,quantite){
+
+    
+  array.push(prix * quantite);
+
+
+ }
+//création class pour la fabriquer l'objet avec les valeur du formulaire
+class formulaire {
+
+  constructor(){ // pas besoin de paremetre puique les valeurs sont directement inserées 
+ 
+   this.prenom = document.getElementById("id_prenom").value,
+   this.nom = document.getElementById("id_nom").value,
+   this.email = document.getElementById("id_email").value,
+   this.adresse = document.getElementById("id_adresse").value,
+   this.ville = document.getElementById("id_ville").value
+     }
+}
+function  regex(formulaireValuesprenom , valeur ) {
+   
+  let re = /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/;
+  return re 
+ 
+ if (re.test(formulaireValuesprenom.value)){
+
+   return true;
+ } else {
+
+   document.querySelector('.erreur').innerHTML = `le ${textElse(valeur)}`
+
+   return false;
+ }
+};
+//vider le panier
 function viderPanier() {
 
   localStorage.clear();
   location.reload();
 }
 
+// *********************confirmation************************
 
-// **********************panier**************************
 // function qui a affiche le recaputatif de la commande
 function afficherCommande(numeroRef,totalmontant){
 
@@ -116,7 +147,7 @@ function afficherCommande(numeroRef,totalmontant){
   informations.innerHTML += `
             <div id="confirm_commande">
             <h2>Votre commande été prise en compte</h2>
-            <p class="">Le montant total est de : ${totalmontant} </p>            
+            <p class="">Le montant total est de : ${formatPrice(totalmontant)}</p>            
             <p class="">Votre numéro de commande est : ${numeroRef} </p>
             </div>
       
@@ -124,17 +155,8 @@ function afficherCommande(numeroRef,totalmontant){
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
+  
+ 
 
 
 

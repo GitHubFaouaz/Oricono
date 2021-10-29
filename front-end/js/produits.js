@@ -12,55 +12,55 @@ fetch (`http://localhost:3000/api/teddies/${idProduitSelectionne}`)
    
   
    const btn_envoyerPanier = document.querySelector("#btn_envoyerPanier"); // doit etre dans la function 
-  btn_envoyerPanier.addEventListener("click",(event) =>{
-  event.preventDefault();    
-  
-  //recuperation des valeurs Quantités et Couleurs du formulaire 
-  const choixQuantité = document.querySelector("#quantiteBear");
-  const choixCouleur = document.querySelector("#colorProuduit-js");
-  
-  //selection de l'article pour le  panier 
-  
-  let infoProduitSelectionne = {
-    id: idProduitSelectionne,
-    name: produitInfo.name,
-    desc : produitInfo.description,
-    price : produitInfo.price,
-    color : choixCouleur.value,
-    Quantite: choixQuantité.value,
-    imageUrl : produitInfo.imageUrl
-  
-  }
-  
-  // .......................localStorage..................................
-  let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
- 
-function ajoutProduitLocalStorage (ajoutLocalStorage) {
-  produitEnregistreDansLocalStorage.push(ajoutLocalStorage);
-  localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));
-
- 
-}
-//s'il y a deja des produits d'enregistré dans le local storage 
-  if(produitEnregistreDansLocalStorage){
-    
-    ajoutProduitLocalStorage(infoProduitSelectionne );
+   btn_envoyerPanier.addEventListener("click",(event) =>{
+   event.preventDefault();    
    
+   // recuperation des valeurs Quantités et Couleurs du formulaire 
+   const choixQuantité = document.querySelector("#quantiteBear");
+   const choixCouleur = document.querySelector("#colorProuduit-js");
+   
+   //selection de l'article pour le  panier 
+   
+   let infoProduitSelectionne = {
+     id: idProduitSelectionne,
+     name: produitInfo.name,
+     desc : produitInfo.description,
+     price : produitInfo.price,
+     color : choixCouleur.value,
+     Quantite: choixQuantité.value,
+     imageUrl : produitInfo.imageUrl
+   
+   }
+   
+   // .......................localStorage..................................
+   let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
   
-    popupConfirmation (infoProduitSelectionne.name);
+   function ajoutProduitLocalStorage (ajoutLocalStorage) {
+     produitEnregistreDansLocalStorage.push(ajoutLocalStorage);
+     localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));
+   
+    
   }
-  //s'il n'y a deja des produits d'enregistré dans le local storage 
-  else{
-    produitEnregistreDansLocalStorage = []; 
-    ajoutProduitLocalStorage(infoProduitSelectionne );
-
+  //s'il y a deja des produits d'enregistré dans le local storage 
+   if(produitEnregistreDansLocalStorage){
+     
+     ajoutProduitLocalStorage(infoProduitSelectionne);
+    
+   
+     popupConfirmation (infoProduitSelectionne.name);
+   }
+   //s'il n'y a deja des produits d'enregistré dans le local storage 
+   else{
+     produitEnregistreDansLocalStorage = []; 
+     ajoutProduitLocalStorage(infoProduitSelectionne );
   
-      popupConfirmation (infoProduitSelectionne.name);
-  } 
-  
-  })
+   
+       popupConfirmation (infoProduitSelectionne.name);
+   } 
+   
+   })
  })
-  
+ 
   
   
   

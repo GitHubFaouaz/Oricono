@@ -18,15 +18,28 @@ if (produitEnregistreDansLocalStorage === null) {
  
      for( af of produitEnregistreDansLocalStorage ){
        produitPanier(af); 
-
+       
 
   }
 }
 //**********************************Le montant total  du panier **********************/
 
+  let arrayOfPrice = [];
+ 
+    // On push chaque prix du DOM dans un tableau
+  
+    for (let sous_total of produitEnregistreDansLocalStorage) {
+    
+      PrixTotal(arrayOfPrice,sous_total.price , sous_total.Quantite);
+    }
+    // Additionner les valeurs du tableau pour avoir le prix total
+    const reducer = (acc, currentVal) => acc + currentVal;
+    arrayOfPrice = arrayOfPrice.reduce(reducer);
+    let prixTotal = document.getElementById('totalPrice');
+    prixTotal.innerHTML += formatPrice(arrayOfPrice) ;
+    
 
-
-//**********buton pour vider entierement le panier  **********************/
+    //**********bouton pour vider entierement le panier  **********************/
 // Lorsque qu'on clique sur le bouton, le panier se vide ainsi que le localStorage
 const bouton_vide_panier = document.querySelector(".btn_panier_vide");
 bouton_vide_panier.addEventListener("click", (e) => {
@@ -36,7 +49,7 @@ bouton_vide_panier.addEventListener("click", (e) => {
 });
 
 //  ********************************************* validation du formulaire et envoie en POST ********************************
-// buton valider_panier pour le formulaire /
+// bouton valider_panier pour le formulaire /
 
 const btnValiderPanier = document.querySelector("#Finaliser_commande_Js");
 
@@ -49,6 +62,11 @@ btnValiderPanier.addEventListener("click", (e) => {
 
   //..................................Regex Lors d'un clic, si l'un des champs n'est pas bien rempli .................... 
   
+ 
+ 
+ 
+ 
+ 
   const textElse = (value) => {
 
     return `${value} n\'est pas valide  `;
@@ -70,24 +88,14 @@ btnValiderPanier.addEventListener("click", (e) => {
 
   };
 
-
-  function prenomControle() {
-    const lePrenom = formulaireValues.prenom;
-
-    if (regexPrenomNomVille(lePrenom)) {
-
-      return true;
-    } else {
-
-      document.querySelector('.erreur').innerHTML = `le ${textElse("prenom")}`
-
-      return false;
-    }
-  };
+  let prenom = 'prenom';
+  regex(formulaireValues.nom, prenom);
+  
+  
   function nomControle() {
-    const leNom = formulaireValues.nom;
+    
 
-    if (regexPrenomNomVille(leNom)) {
+    if (regexPrenomNomVille(formulaireValues.nom)) {
 
       return true;
     } else {
@@ -136,15 +144,16 @@ btnValiderPanier.addEventListener("click", (e) => {
       return false;
     }
   };
-
-
+  
+  
 
   // .............................si toute les conditions sont reunies...............................  
 
-  if (prenomControle() & nomControle() & villeControle() & emailControle() & adresseControle()) {
+  if ( nomControle() & villeControle() & emailControle() & adresseControle()) {
 
    
-    // Si le formulaire est valide, le tableau productsId contiendra un tableau d'objet qui sont les produits acheté, et order contiendra ce tableau ainsi que l'objet qui contient les infos de l'acheteur
+    /* Si le formulaire est valide, le tableau productsId contiendra un tableau d'objet qui sont les produits acheté, 
+    et order contiendra ce tableau ainsi que l'objet qui contient les infos de l'acheteur */
     let productsId = [];
     for ( let product of produitEnregistreDansLocalStorage ){
      
@@ -170,16 +179,15 @@ btnValiderPanier.addEventListener("click", (e) => {
       body: JSON.stringify(order),
       headers: { "Content-Type": "application/json" },
     };
-     let total = 10;
-
-    // Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
+    
+   // Envoie de la requête avec l'en-tête. On changera de page avec un localStorage qui ne contiendra plus que l'order id et le prix.
     fetch("http://localhost:3000/api/teddies/order", options)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        
         localStorage.clear();
         localStorage.setItem("order", data.orderId);
-        localStorage.setItem("total",total);
+        localStorage.setItem("total",arrayOfPrice);
 
 
         document.location.href = "../html/confirmation.html";
