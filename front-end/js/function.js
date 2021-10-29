@@ -118,11 +118,11 @@ class formulaire {
 function  regex(formulaireValuesprenom , valeur ) {
    
   let re = /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/;
-  return re 
  
- if (re.test(formulaireValuesprenom.value)){
+ 
+ if (re.test(formulaireValuesprenom)){
 
-   return true;
+   return re;
  } else {
 
    document.querySelector('.erreur').innerHTML = `le ${textElse(valeur)}`

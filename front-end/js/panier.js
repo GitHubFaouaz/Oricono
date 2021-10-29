@@ -62,94 +62,20 @@ btnValiderPanier.addEventListener("click", (e) => {
 
   //..................................Regex Lors d'un clic, si l'un des champs n'est pas bien rempli .................... 
   
+    const regexPrenomNomVille = /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/;
+    const regexEmail =/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const regexAdresse = /^[A-Za-z0-9À-ÿ\s]{5,50}$/;
  
- 
- 
- 
- 
-  const textElse = (value) => {
+// .............................si toute les conditions sont reunies...............................  
 
-    return `${value} n\'est pas valide  `;
-
-  };
-  const regexPrenomNomVille = (value) => {
-
-    return /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/.test(value);
-
-  };
-  const regexEmail = (value) => {
-
-    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
-
-  };
-  const regexAdresse = (value) => {
-
-    return /^[A-Za-z0-9À-ÿ\s]{5,50}$/.test(value);
-
-  };
-
-  let prenom = 'prenom';
-  regex(formulaireValues.nom, prenom);
-  
-  
-  function nomControle() {
+  if (
+  (regexPrenomNomVille.test( formulaireValues.prenom)) & 
+  (regexPrenomNomVille.test( formulaireValues.nom)) &
+  (regexPrenomNomVille.test( formulaireValues.ville)) &
+  (regexEmail.test( formulaireValues.email)) &
+  (regexAdresse.test( formulaireValues.adresse))  
     
-
-    if (regexPrenomNomVille(formulaireValues.nom)) {
-
-      return true;
-    } else {
-
-      document.querySelector('.erreur').innerHTML = `le ${textElse("nom")}`;
-
-      return false;
-    }
-  };
-  function villeControle() {
-    const laVille = formulaireValues.ville;
-
-    if (regexPrenomNomVille(laVille)) {
-
-      return true;
-    } else {
-
-      document.querySelector('.erreur').innerHTML = `le ${textElse("ville")} `;
-
-      return false;
-    }
-  };
-  function emailControle() {
-    const leEmail = formulaireValues.email;
-
-    if (regexEmail(leEmail)) {
-
-      return true;
-    } else {
-
-
-      document.querySelector('.erreur').innerHTML = `le ${textElse("email")}`;
-      return false;
-    }
-  };
-  function adresseControle() {
-    const adresse = formulaireValues.adresse;
-
-    if (regexAdresse(adresse)) {
-
-      return true;
-    } else {
-
-      document.querySelector('.erreur').innerHTML = `l' ${textElse("adresse")} `;
-
-      return false;
-    }
-  };
-  
-  
-
-  // .............................si toute les conditions sont reunies...............................  
-
-  if ( nomControle() & villeControle() & emailControle() & adresseControle()) {
+    ) {
 
    
     /* Si le formulaire est valide, le tableau productsId contiendra un tableau d'objet qui sont les produits acheté, 
