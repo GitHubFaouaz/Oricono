@@ -125,7 +125,7 @@ btnValiderPanier.addEventListener("click", (e) => {
 
   } else {
 
-    alert("veuillez bien remplir le formulaire");
+    alert("veuillez compléter le formulaire");
   }
 
 

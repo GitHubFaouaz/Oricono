@@ -52,11 +52,12 @@ function addProduit(produitInfo) { //
  
 
 //Fonction ajouter le produit sélectionné dans le localStorage 
-function ajoutProduitLocalStorage (ajoutLocalStorage) {
-    produitEnregistreDansLocalStorage.push(ajoutLocalStorage);
-    localStorage.setItem("key_produit", JSON.stringify(produitEnregistreDansLocalStorage));
+function ajoutProduitLocalStorage (produitEnregistreDansLocalStorage,infoProduitSelectionne) {
   
-   
+  produitEnregistreDansLocalStorage.push(infoProduitSelectionne);
+  localStorage.setItem("key_produit",JSON.stringify(produitEnregistreDansLocalStorage));
+
+ 
 }
  // function popup 
  function popupConfirmation (nom){
@@ -71,9 +72,10 @@ Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.con
 
 }
 
-
-
-
+function pupTest (){
+  document.querySelector(".modal").style.visibility = "visible";
+  
+}
 // **********************panier**************************
 
 // affiche les produits du localStorage dans le panier  
@@ -115,21 +117,7 @@ class formulaire {
    this.ville = document.getElementById("id_ville").value
      }
 }
-function  regex(formulaireValuesprenom , valeur ) {
-   
-  let re = /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/;
- 
- 
- if (re.test(formulaireValuesprenom)){
 
-   return re;
- } else {
-
-   document.querySelector('.erreur').innerHTML = `le ${textElse(valeur)}`
-
-   return false;
- }
-};
 //vider le panier
 function viderPanier() {
 
