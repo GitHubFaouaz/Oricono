@@ -1,3 +1,29 @@
+@-webkit-keyframes animation-defilement-menu {
+  0% {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation-defilement-menu {
+  0% {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 header {
   background: black;
   padding: 0;
@@ -118,7 +144,6 @@ article .div-details-photo p {
 }
 
 .modal-content {
-  /* position: relative; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,14 +182,16 @@ article .div-details-photo p {
 }
 
 .modal-content .modal-body {
-  /* position: relative; */
-  /* flex: 1 1 auto; */
   padding: 1rem;
   border: 1px solid #dee2e6;
 }
 
 .modal-content .modal-body p {
   font-size: 1.1rem;
+}
+
+.modal-content .modal-body p span {
+  color: #f3976c;
 }
 
 .modal-content .modal-footer {
@@ -185,19 +212,38 @@ article .div-details-photo p {
         border-bottom-left-radius: calc(0.3rem - 1px); */
 }
 
-.btn-secondary {
+.modal-content .modal-footer .btn-secondary {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
 }
 
-.btn-success {
-  color: #fff;
-  background-color: #198754;
-  border-color: #198754;
+.modal-content .modal-footer .btn-secondary:hover {
+  background-color: #6c757d !important;
+  -webkit-box-shadow: 0 0 0 0.2rem #6c757d !important;
+          box-shadow: 0 0 0 0.2rem #6c757d !important;
 }
 
-.btn-modal {
+.modal-content .modal-footer .btn-success {
+  color: #fff;
+  background-color: #f3976c;
+  border-color: #f3976c;
+}
+
+.modal-content .modal-footer .btn-success:hover {
+  background-color: #f3976c !important;
+  -webkit-box-shadow: 0 0 0 0.2rem #f3976c !important;
+          box-shadow: 0 0 0 0.2rem #f3976c !important;
+}
+
+.modal-content .modal-footer .btn-success:focus {
+  background-color: #f3976c !important;
+  border-color: #f3976c;
+  -webkit-box-shadow: 0 0 0 0.2rem #f3976c !important;
+          box-shadow: 0 0 0 0.2rem #f3976c !important;
+}
+
+.modal-content .modal-footer .btn-modal {
   display: inline-block;
   font-weight: 400;
   padding: 0.5rem 0.75rem;
@@ -295,11 +341,6 @@ article .div-details-photo p {
   padding: 1rem;
 }
 
-#section_product_infos .product_infos .product-infos_btn #btn_envoyerPanier:focus + .modal {
-  z-index: 1;
-  visibility: visible;
-}
-
 #main-panier {
   margin: 1rem 0;
 }
@@ -364,13 +405,18 @@ article .div-details-photo p {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+
+#section_button_valider_vider_panier .btn-secondary + #section-commande {
+  opacity: 0;
 }
 
 #section-commande {
   background: #f3976c;
   padding: 1rem;
   border-radius: 1rem;
+  visibility: hidden;
 }
 
 #section-commande form .div-label {

@@ -18,7 +18,7 @@
 }
 .sectionNounours{
     
-    background: #f3976c;
+    background: $color-peche;
     h2{
         text-align: center;
         color: $color-peche;
@@ -89,10 +89,7 @@ article{
 }
 
 //.......... page product.....................................................................///////
-#body_produits{
-    
- 
-}
+
 
 .modal {
     display: block;
@@ -101,7 +98,7 @@ article{
     left: 0;
     width: 100%;
     height: 100%;
-    // z-index: -1;
+    
      visibility: hidden;
     .modal-dialog {
    
@@ -111,7 +108,7 @@ article{
 }
 
 .modal-content {
-    /* position: relative; */
+  
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -139,13 +136,15 @@ article{
     
     
     .modal-body {
-        /* position: relative; */
-        /* flex: 1 1 auto; */
+        
         padding: 1rem;
         border: 1px solid #dee2e6;
        p{
     
         font-size: 1.1rem;
+        span{
+            color:$color-peche ;
+        }
        }
     }
     
@@ -159,32 +158,51 @@ article{
        
         /* border-bottom-right-radius: calc(0.3rem - 1px);
         border-bottom-left-radius: calc(0.3rem - 1px); */
+        .btn-secondary {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+            &:hover{
+                background-color: #6c757d!important; 
+                box-shadow: 0 0 0 0.2rem #6c757d!important;
+               
+            }
+        }
+        
+        
+        .btn-success {
+            color: #fff;
+            background-color: $color-peche;
+            border-color: $color-peche;
+            &:hover{
+                background-color: $color-peche!important; 
+                
+                box-shadow: 0 0 0 0.2rem $color-peche!important;
+            }
+           
+            &:focus{
+                background-color: $color-peche!important; 
+                border-color: $color-peche;
+                box-shadow: 0 0 0 0.2rem $color-peche!important;
+            }
+           
+        }
+        .btn-modal {
+            display: inline-block;
+            font-weight: 400;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            
+        }
         
     }
 }
 
 
-.btn-secondary {
-    color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
-}
-
-.btn-success {
-    color: #fff;
-    background-color: #198754;
-    border-color: #198754;
-}
 
 
-.btn-modal {
-    display: inline-block;
-    font-weight: 400;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    
-}
+
 
 
 
@@ -257,11 +275,7 @@ article{
            padding: 1rem; 
         }
 
-         #btn_envoyerPanier:focus + .modal {
-             z-index: 1;
-            
-            visibility: visible;
-         }
+       
     }
 }
 }
@@ -327,7 +341,12 @@ article{
 
     display: flex;
     justify-content: space-around;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    .btn-secondary  + #section-commande {
+        opacity: 0;
+       
+        
+  }
 
     
     
@@ -338,6 +357,7 @@ article{
     background: $color-peche;
     padding: 1rem;
     border-radius: 1rem;
+   visibility: hidden;
     form{
        
        

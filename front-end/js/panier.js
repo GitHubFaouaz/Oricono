@@ -47,6 +47,13 @@ bouton_vide_panier.addEventListener("click", (e) => {
   viderPanier();
 
 });
+const bouton_valier_panier = document.querySelector(".valider_panier");
+bouton_valier_panier.addEventListener("click", (e) => {
+  e.preventDefault;
+  validerPanier();
+
+});
+
 
 //  ********************************************* validation du formulaire et envoie en POST ********************************
 // bouton valider_panier pour le formulaire /

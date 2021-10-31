@@ -39,10 +39,10 @@ fetch (`http://localhost:3000/api/teddies/${idProduitSelectionne}`)
      
      ajoutProduitLocalStorage(produitEnregistreDansLocalStorage,infoProduitSelectionne);
      
-     pupTest ();
+     pupConfirm (infoProduitSelectionne.name);
      
      
-     //popupConfirmation (infoProduitSelectionne.name);
+    //  popupConfirmation (infoProduitSelectionne.name);
    }
    //s'il n'y a deja des produits d'enregistré dans le local storage 
    else{

@@ -60,21 +60,18 @@ function ajoutProduitLocalStorage (produitEnregistreDansLocalStorage,infoProduit
  
 }
  // function popup 
- function popupConfirmation (nom){
-  
-  if(window.confirm(`${nom} a été ajouté au panier
-Consultez le panier ok ou revenir à la laccueil ANNULER ` )){     // window.confirm Affiche un dialogue modal avec un message et deux boutons, OK et Annuler.
- window.location.href ="../html/panier.html";                          
+function pupConfirm (nom){
+
+  document.querySelector(".modal").animate([
+   {  transform : 'translateY(30px)',visibility : "visible" }
+       
+ ],{
+  duration: 300,
+  fill:"both",
+ })
+ const modal_body =document.querySelector(".modal-body");
+ modal_body.innerHTML +=` <p><span>${nom}</span> a bien été ajouté au panier</p>`  
  
-  }else{
- window.location.href ="../index.html"; 
- }
-
-}
-
-function pupTest (){
-  document.querySelector(".modal").style.visibility = "visible";
-  
 }
 // **********************panier**************************
 
@@ -121,10 +118,22 @@ class formulaire {
 //vider le panier
 function viderPanier() {
 
+ 
   localStorage.clear();
   location.reload();
 }
-
+ // valider le panier 
+ function validerPanier() {
+  document.querySelector('#section-commande').animate([
+   
+     {  transform : 'translateY(5px)',visibility : "visible" }
+         
+ ],{
+   duration: 300,
+   fill:"both",
+  })
+ 
+ }
 // *********************confirmation************************
 
 // function qui a affiche le recaputatif de la commande
