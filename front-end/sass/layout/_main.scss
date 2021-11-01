@@ -326,11 +326,30 @@ article{
             height: 100px;
             object-fit: fill;
         }   
+    
+    
     }
     
     
    }
+   
+    .container_panier_vide{
+    display: flex;
+        align-items: center;
+    justify-content: center;
+    flex-direction: column;    
 
+        p {
+    font-size: 65px;
+    text-align: center;
+    color: $color-black;
+    font-weight: bold; 
+      }  
+    } 
+   
+   
+   
+ 
    tfoot{
 
     text-align: center;

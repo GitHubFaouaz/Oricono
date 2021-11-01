@@ -1,4 +1,4 @@
-let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
+
 
 // ****************************index***************************
 // Formatage du prix pour l'afficher en euros
@@ -52,12 +52,16 @@ function addProduit(produitInfo) { //
  
 
 //Fonction ajouter le produit sélectionné dans le localStorage 
-function ajoutProduitLocalStorage (produitEnregistreDansLocalStorage,infoProduitSelectionne) {
-  
-  produitEnregistreDansLocalStorage.push(infoProduitSelectionne);
-  localStorage.setItem("key_produit",JSON.stringify(produitEnregistreDansLocalStorage));
+function ajoutProduitLocalStorage(infoProduitSelectionne) {
+  let productsJson = localStorage.getItem("key_produit");
+  let products = [];
+  if(productsJson){
+    products = JSON.parse(productsJson);
+  }
+  products.push(infoProduitSelectionne);
+  localStorage.setItem("key_produit", JSON.stringify(products));
 
- 
+
 }
  // function popup 
 function pupConfirm (nom){
@@ -114,7 +118,20 @@ class formulaire {
    this.ville = document.getElementById("id_ville").value
      }
 }
-
+// afficher panier vide 
+function panierVideHtml() {
+  // je fais appelle au container panier vide
+  document.querySelector("#section-info-panier").innerHTML = `
+  
+  <div class =' container_panier_vide'>
+       <p> votre panier est vide </p> 
+      <a href="../index.html" <button type="button" class="btn btn-secondary  col-2 mx-5"> Page d'acceuil</button></a>
+   <div>`;
+   
+   // les boutons valider et vider  le panier sont invisibles 
+   document.querySelector('.valider_panier').style.visibility= "hidden";
+   document.querySelector('.btn_panier_vide').style.visibility= "hidden";  
+ }
 //vider le panier
 function viderPanier() {
 
