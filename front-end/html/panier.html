@@ -22,46 +22,43 @@
         </div>
     </header>
     <main id="main-panier">
-    <div class="container" >      
-      <section id="section-info-panier" >
+    <div  class="container  " >      
+    <section    id="section-info-panier" >
         
     <!-- insertion des produits du panier -->
-    <table class="col-12">
-      <thead>
-          <tr>
-               <th class="col-2">produit</th><!--col-2 -->
-              <th class="col-2">Nom </th>
-              <th class="col-2">Couleur </th>
-              <th class="col-2">Quantité </th>
-              <th class="col-2">Prix</th>
-              <th class="col-2">Sous-total</th>
+    <table   >
+      <thead class="row">
+          <tr >
+               <th scole="col" class="col-2">produit</th>
+              <th scole="col" class="col-2">Nom </th>
+              <th scole="col" class="col-2">Couleur </th>
+              <th scole="col" class="col-2">Quantité </th>
+              <th scole="col" class="col-2">Prix</th>
+              <th scole="col" class="col-2">Sous-total</th>
           </tr>
       </thead>    
       
-      <tbody id="tbody_produit" > 
+      <tbody class="row" id="tbody_produit" > 
         <!------ insertion du panier ----> 
         
-      </tbody>   
+      </tbody>
       
-     
-   
+      <tfoot  >
+        <tr class="row col-12 " >
+            <th  colspan="0" class="col-8" ></th>
+            <th   colspan="0" class="col-2">Total : </th>
+            <th   colspan="0" class="col-2" id="totalPrice"></th>
+        </tr>
+      </tfoot> 
     </table>
     
-  <table class="col-12">
-    <tfoot  >
-      <tr class="">
-          <th colspan="0" class="col-8" ></th>
-          <th colspan="0" class="col-2">Total : </th>
-          <th colspan="0" class="col-2" id="totalPrice" name='totalPrice'></th>
-      </tr>
-    </tfoot>    
-  </table>
+  </div>
    </section>    
   
   
 
    
-  <section id="section_button_valider_vider_panier">
+   <section id="section_button_valider_vider_panier">
      
         <button type="submit" class="btn btn-secondary valider_panier col-2 mx-5" >Valider le panier</button>
         <button type="button" class="btn btn-danger btn_panier_vide col-2 mx-5"  >Vider le panier</button>

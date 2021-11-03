@@ -1,36 +1,33 @@
-//...................................AFFICHAGE  DES PRODUITS DE PANIER.........................................//
+//...................................AFFICHAGE  DES PRODUITS DU PANIER.........................................//
 let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
 //section de la classe ou je vais injecter le code HTML(le container panier ) 
-
 
 let arrayOfPrice = [];
 //si le panier est vide : afficher panier vide 
 if (produitEnregistreDansLocalStorage === null) {
-  
-   panierVideHtml(); 
-  } else {
+
+  panierVideHtml();
+} else {
 
   //si le panier n'est pas vide :afficher les produits du localStorage 
   for (af of produitEnregistreDansLocalStorage) {
-    
+
     produitPanier(af);
   }
   //**********************************Le montant total  du panier **********************/
 
-// On push chaque prix dans un tableau
-for (let sous_total of produitEnregistreDansLocalStorage) {
+  // On push chaque prix dans un tableau
+  for (let sous_total of produitEnregistreDansLocalStorage) {
 
-  PrixTotal(arrayOfPrice, sous_total.price, sous_total.Quantite);
+    PrixTotal(arrayOfPrice, sous_total.price, sous_total.Quantite);
+  }
+
+  // Additionner les valeurs du tableau pour avoir le prix total
+  const reducer = (acc, currentVal) => acc + currentVal;
+  arrayOfPrice = arrayOfPrice.reduce(reducer);
+  let prixTotal = document.getElementById('totalPrice');
+  prixTotal.innerHTML += formatPrice(arrayOfPrice);
 }
-
-// Additionner les valeurs du tableau pour avoir le prix total
-const reducer = (acc, currentVal) => acc + currentVal;
-arrayOfPrice = arrayOfPrice.reduce(reducer);
-let prixTotal = document.getElementById('totalPrice');
-prixTotal.innerHTML += formatPrice(arrayOfPrice);
-}
-
-
 
 /**********bouton pour vider ou valider le panier  **********************/
 // Lorsque qu'on clique sur le bouton, le panier se vide ainsi que le localStorage
@@ -51,7 +48,6 @@ bouton_valider_panier.addEventListener("click", (e) => {
 //  ********************************************* validation du formulaire et envoie en POST ********************************
 // bouton valider_panier pour le formulaire /
 const btnValiderPanier = document.querySelector("#Finaliser_commande_Js");
-
 btnValiderPanier.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -59,13 +55,11 @@ btnValiderPanier.addEventListener("click", (e) => {
   const formulaireValues = new formulaire();
 
   //....................Regex Lors d'un clic, si l'un des champs n'est pas bien rempli .................... 
-
   const regexPrenomNomVille = /^([A-Za-z]{3,20})?([-]{0,1})?([A-Za-z]{3,20})$/;
   const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
   const regexAdresse = /^[A-Za-z0-9À-ÿ\s]{5,50}$/;
 
   // ......................si toute les conditions sont reunies...............................  
-
   if (
     (regexPrenomNomVille.test(formulaireValues.prenom)) &
     (regexPrenomNomVille.test(formulaireValues.nom)) &
@@ -95,11 +89,8 @@ btnValiderPanier.addEventListener("click", (e) => {
       },
       products: productsId,
     };
-  
- 
 
     // ******************************************// on envoie les donnés en POST ********************       
-  
     const options = {
       method: "POST",
       body: JSON.stringify(order),

@@ -7,14 +7,18 @@
     
 }
 .contener-bear-photo{
- 
-    .bear-photo{     
-      background-image: url("/front-end/img/wallpapertip.jpg");
-      background-size: cover;
-     height: 50vh;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
 
-    }
-
+  h1{
+   
+  animation:  translateH1 1.5s ease-in-out;
+  text-shadow: 3px 5px #f3976c;
+  }
+   
 }
 .sectionNounours{
     
@@ -23,34 +27,20 @@
         text-align: center;
         color: $color-peche;
         
+        
     }
     .container {
         max-width: 1800px;
     }
 }
-.container-bear{
-    
-   
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 30px;
-     flex-wrap: wrap;
-   
-     border-radius: 1rem 1rem 0 0;
-     padding-top: 1rem;
-    padding-bottom: 1rem;
-   
-    
- 
-}
+
 article{
     width: 100%; 
    background: $color-peche;
    border-radius: 1rem  ;
    margin-bottom: 3rem;
-   box-shadow: 1px 1px 5px $color-black;
+  
+  
    &:hover {
     transform: scale(1.05);
     transition: transform 550ms;
@@ -268,11 +258,12 @@ article{
        
     }
     .product-infos_btn{
-        display: flex;
-        justify-content: space-between;
+         display: flex;
+         justify-content: space-between;
        
         .btn-secondary{
            padding: 1rem; 
+           margin-top: 1rem;
         }
 
        

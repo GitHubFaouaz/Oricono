@@ -13,7 +13,8 @@ function addTeddies(produit){
  const cart = document.getElementById('liste'); 
  
   cart.innerHTML  += `
-<article >
+
+  <article class= 'col-xs-12 col-sm-12 col-md-4 col-lg-4'   >
   <a href="html/product.html?name_id=${produit._id}"><img src="${produit.imageUrl}" alt="${produit.name}"></a> 
   <div class="div-details-photo">
      <p class="nom-prix"><span>${produit.name}</span> <span>${formatPrice(produit.price)}</span></p>  
@@ -85,7 +86,7 @@ function produitPanier(product) {
   const elementBody = document.querySelector("#tbody_produit");
   elementBody.innerHTML += ` 
 
-<tr>
+<tr  >
   <td class="col-2"><img src="${product.imageUrl}"></td>
   <td class="col-2">${product.name}</td>
   <td class="col-2">${product.color}</td>
@@ -169,7 +170,22 @@ function afficherCommande(numeroRef,totalmontant){
   }
 
 
+  // function ajoutProduitLocalStorage(infoProduitSelectionne) {
   
+  //   let productsJson = localStorage.getItem("key_produit");
+  //   let products = [];
+  //   if(infoProduitSelectionne.id == infoProduitSelectionne.id ){
+  //     infoProduitSelectionne.Quantite++
+  //     localStorage.setItem("key_produit", JSON.stringify(products));
+    
+  //   }else{
+  //     products = JSON.parse(productsJson);
+  //   }
+  //   products.push(infoProduitSelectionne);
+    
+  
+  
+  // } 
  
 
 
