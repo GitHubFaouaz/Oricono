@@ -1,4 +1,4 @@
-let produitEnregistreDansLocalStorage = JSON.parse(localStorage.getItem("key_produit"));
+
 
 // ****************************index***************************
 // Formatage du prix pour l'afficher en euros
@@ -13,7 +13,8 @@ function addTeddies(produit){
  const cart = document.getElementById('liste'); 
  
   cart.innerHTML  += `
-<article >
+
+  <article class= 'col-xs-12 col-sm-12 col-md-4 col-lg-4'   >
   <a href="html/product.html?name_id=${produit._id}"><img src="${produit.imageUrl}" alt="${produit.name}"></a> 
   <div class="div-details-photo">
      <p class="nom-prix"><span>${produit.name}</span> <span>${formatPrice(produit.price)}</span></p>  
@@ -52,12 +53,16 @@ function addProduit(produitInfo) { //
  
 
 //Fonction ajouter le produit sélectionné dans le localStorage 
-function ajoutProduitLocalStorage (produitEnregistreDansLocalStorage,infoProduitSelectionne) {
-  
-  produitEnregistreDansLocalStorage.push(infoProduitSelectionne);
-  localStorage.setItem("key_produit",JSON.stringify(produitEnregistreDansLocalStorage));
+function ajoutProduitLocalStorage(infoProduitSelectionne) {
+  let productsJson = localStorage.getItem("key_produit");
+  let products = [];
+  if(productsJson){
+    products = JSON.parse(productsJson);
+  }
+  products.push(infoProduitSelectionne);
+  localStorage.setItem("key_produit", JSON.stringify(products));
 
- 
+
 }
  // function popup 
 function pupConfirm (nom){
@@ -81,7 +86,7 @@ function produitPanier(product) {
   const elementBody = document.querySelector("#tbody_produit");
   elementBody.innerHTML += ` 
 
-<tr>
+<tr  >
   <td class="col-2"><img src="${product.imageUrl}"></td>
   <td class="col-2">${product.name}</td>
   <td class="col-2">${product.color}</td>
@@ -114,7 +119,20 @@ class formulaire {
    this.ville = document.getElementById("id_ville").value
      }
 }
-
+// afficher panier vide 
+function panierVideHtml() {
+  // je fais appelle au container panier vide
+  document.querySelector("#section-info-panier").innerHTML = `
+  
+  <div class =' container_panier_vide'>
+       <p> votre panier est vide </p> 
+      <a href="../index.html" <button type="button" class="btn btn-secondary  col-2 mx-5"> Page d'acceuil</button></a>
+   <div>`;
+   
+   // les boutons valider et vider  le panier sont invisibles 
+   document.querySelector('.valider_panier').style.visibility= "hidden";
+   document.querySelector('.btn_panier_vide').style.visibility= "hidden";  
+ }
 //vider le panier
 function viderPanier() {
 
@@ -152,7 +170,22 @@ function afficherCommande(numeroRef,totalmontant){
   }
 
 
+  // function ajoutProduitLocalStorage(infoProduitSelectionne) {
   
+  //   let productsJson = localStorage.getItem("key_produit");
+  //   let products = [];
+  //   if(infoProduitSelectionne.id == infoProduitSelectionne.id ){
+  //     infoProduitSelectionne.Quantite++
+  //     localStorage.setItem("key_produit", JSON.stringify(products));
+    
+  //   }else{
+  //     products = JSON.parse(productsJson);
+  //   }
+  //   products.push(infoProduitSelectionne);
+    
+  
+  
+  // } 
  
 
 
