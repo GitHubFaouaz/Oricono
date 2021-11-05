@@ -1,125 +1,127 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <title>Panier</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://kit.fontawesome.com/966980ee1c.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../sass/style.css">
-  </head>
-  <body>
-    <header>
-        <div class="container-fluid col-12">
-          <div id="header-container">
-            <nav class="navbar">
-                <a href="../index.html">Orinours</a>
-                <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
-            </nav>    
-          </div> 
-        </div>
-    </header>
-    <main id="main-panier">
-    <div  class="container  " >      
-    <section    id="section-info-panier" >
-        
-    <!-- insertion des produits du panier -->
-    <table   >
-      <thead >
-          <tr >
-               <th scole="col" class="col-2">produit</th>
+
+<head>
+  <title>Panier</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://kit.fontawesome.com/966980ee1c.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../sass/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid col-12">
+      <div id="header-container">
+        <nav class="navbar">
+          <a href="../index.html">Orinours</a>
+          <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main-panier">
+    <div class="container  ">
+      <section id="section-info-panier">
+
+        <!-- insertion des produits du panier -->
+        <table>
+          <thead class="row">
+
+            <tr>
+              <th scole="col" class="col-2">produit</th>
               <th scole="col" class="col-2">Nom </th>
               <th scole="col" class="col-2">Couleur </th>
               <th scole="col" class="col-2">Quantité </th>
               <th scole="col" class="col-2">Prix</th>
               <th scole="col" class="col-2">Sous-total</th>
-          </tr>
-      </thead>    
-      
-      <tbody  id="tbody_produit" > 
-        <!------ insertion du panier ----> 
-        
-      </tbody>
-      
-      <tfoot  >
-        <tr class="row col-12 " >
-            <th  colspan="0" class="col-8" ></th>
-            <th   colspan="0" class="col-2">Total : </th>
-            <th   colspan="0" class="col-2" id="totalPrice"></th>
-        </tr>
-      </tfoot> 
-    </table>
-    <table>
-      
-    </table>
-  </div>
-   </section>    
-  
-  
+            </tr>
+          </thead>
 
-   
-   <section class="container " id="section_button_valider_vider_panier">
-     
-        <button type="submit" class="btn btn-secondary valider_panier col-2 mx-5" >Valider le panier</button>
-        <button type="button" class="btn btn-danger btn_panier_vide col-2 mx-5"  >Vider le panier</button>
-        
-  </section>    
-      
-  
-    
-    
-  <section id="section-commande">
-    
-        <h2>Votre adresse de livraison</h2>
-      <form >
-        <div class="div-label">
-          <div><label for="firsName">Prénom</label><input type="text" name="firsName" id="id_prenom" placeholder="Ex: 'toto'"></div> 
-          <div><label for="lastName">Nom</label><input type="text" name="lastName" id="id_nom" placeholder="Ex: oto"></div>  
-          <div><label for="email">Adresse e-mail</label><input type="text" name="email" id="id_email" placeholder="Ex: 'faouaza@yahoo.com'"></div>
-       </div>  
-       <div class="div-label">
-        <div id='adresse'><label for="adresse">Adresse</label><input type="text" name="adresse"  id="id_adresse" placeholder="Ex: '17 rue orinounours'"></div>
-        
-        <div><label for="ville">Ville</label><input type="text" name="ville" id="id_ville"  placeholder="Ex: 'city_orico'" ></div>
-        
+          <tbody class="row" id="tbody_produit">
+
+            <!------ insertion du panier ---->
+          </tbody>
+
+          <tfoot>
+            <tr class="row ">
+              <th colspan="0" class="col-8"></th>
+              <th colspan="0" class="col-2">Total : </th>
+              <th colspan="0" class="col-2" id="totalPrice"></th>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </div>
+
+    <section class="container  " id="section_button_valider_vider_panier">
+      <div class="row">
+        <button type="submit" class="  btn btn-secondary valider_panier col-xs-3 col-sm-4 col-md-4 col-lg-3 ">Valider le
+          panier</button>
+        <button type="button" class=" btn btn-danger btn_panier_vide  col-xs-3 col-sm-4 col-md-4 col-lg-3">Vider le
+          panier</button>
       </div>
-      
-      <div id="submit_commande"> 
-         
-         <div class="erreur"></div>
-         <input type="submit" value="Finaliser la commande" id="Finaliser_commande_Js">
-        </div>    
-        
+    </section>
 
+    <section class="container" id="section-commande">
+
+      <h2>Votre adresse de livraison</h2>
+      <form>
+        <div class="div-label">
+          <div><label for="firsName">Prénom</label><input type="text" name="firsName" id="id_prenom"
+              placeholder="Ex: 'toto'"></div>
+          <div><label for="lastName">Nom</label><input type="text" name="lastName" id="id_nom" placeholder="Ex: oto">
+          </div>
+          <div><label for="email">Adresse e-mail</label><input type="text" name="email" id="id_email"
+              placeholder="Ex: 'faouaza@yahoo.com'"></div>
+        </div>
+        <div class="div-label">
+          <div id='adresse'><label for="adresse">Adresse</label><input type="text" name="adresse" id="id_adresse"
+              placeholder="Ex: '17 rue orinounours'"></div>
+
+          <div><label for="ville">Ville</label><input type="text" name="ville" id="id_ville"
+              placeholder="Ex: 'city_orico'"></div>
+
+        </div>
+
+        <div id="submit_commande">
+
+          <div class="erreur"></div>
+          <input type="submit" value="Finaliser la commande" id="Finaliser_commande_Js" class="btn btn-secondary ">
+        </div>
 
       </form>
-    
     </section>
-    </div> 
+    </div>
+  </main>
 
-       
-             
-    </main>
-           
-   <footer class="container-fluid ">
-        <div class="nav-footer">
-          <a href="../index.html">Accueil</a>
-          <a href="">Contact</a>
-          <a href="">Mentions légales</a>
-         
-        </div>
-      </footer>
-      
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="../js/function.js"></script>
-    <script src="../js/panier.js"></script>
-    
-   
-  </body>
+  <footer class="container-fluid">
+    <div class=" row nav-footer">
+      <a href="index.html" class="col-xs-12">Accueil</a>
+      <a href="" class="col-xs-12">Contact</a>
+      <a href="" class="col-xs-12">Mentions légales</a>
+
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="../js/function.js"></script>
+  <script src="../js/panier.js"></script>
+
+</body>
+
 </html>
