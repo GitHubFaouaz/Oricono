@@ -23,12 +23,7 @@
 .sectionNounours{
     
     background: $color-peche;
-    h2{
-        text-align: center;
-        color: $color-peche;
-        
-        
-    }
+    
     .container {
         max-width: 1800px;
     }
@@ -39,6 +34,7 @@ article{
    background: $color-peche;
    border-radius: 1rem  ;
    margin-bottom: 3rem;
+   margin-top: 1rem;
   
   
    &:hover {
