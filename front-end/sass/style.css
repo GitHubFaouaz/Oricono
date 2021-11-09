@@ -161,7 +161,6 @@ article .div-details-photo p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /* flex-shrink: 0; */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -169,8 +168,6 @@ article .div-details-photo p {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0.75rem;
-  /* border-top-left-radius: calc(0.3rem -1px);
-        border-top-right-radius: calc(0.3rem - 1px); */
 }
 
 .modal-content .modal-header .modal-title {
@@ -198,7 +195,6 @@ article .div-details-photo p {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  /* flex-shrink: 0; */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -206,8 +202,6 @@ article .div-details-photo p {
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: 0.75rem;
-  /* border-bottom-right-radius: calc(0.3rem - 1px);
-        border-bottom-left-radius: calc(0.3rem - 1px); */
 }
 
 .modal-content .modal-footer .btn-secondary {
@@ -506,7 +500,8 @@ article .div-details-photo p {
   width: 45rem;
 }
 
-#recap_commande #confirm_commande h2, #recap_commande #confirm_commande p {
+#recap_commande #confirm_commande h2,
+#recap_commande #confirm_commande p {
   margin-top: 3rem;
 }
 
