@@ -5,6 +5,8 @@ fetch('http://localhost:3000/api/teddies')
 
     // boucle pour chaque produit 
     for (produit of data) {
+    
+    // on fait appelle à la fonction addTeddies pour Dispatcher les données de chaque produit (prix, nom...) dans le DOM  
       addTeddies(produit)
     }
   })

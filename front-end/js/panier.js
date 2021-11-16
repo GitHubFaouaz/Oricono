@@ -10,9 +10,9 @@ if (produitEnregistreDansLocalStorage === null) {
 } else {
 
   //si le panier n'est pas vide :afficher les produits du localStorage 
-  for (af of produitEnregistreDansLocalStorage) {
+  for (produit of produitEnregistreDansLocalStorage) {
 
-    produitPanier(af);
+    produitPanier(produit);
   }
   //**********************************Le montant total  du panier **********************/
 
