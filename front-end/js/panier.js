@@ -11,7 +11,7 @@ if (produitEnregistreDansLocalStorage === null) {
 
   //si le panier n'est pas vide :afficher les produits du localStorage 
   for (produit of produitEnregistreDansLocalStorage) {
-
+  
     produitPanier(produit);
   }
   //**********************************Le montant total  du panier **********************/

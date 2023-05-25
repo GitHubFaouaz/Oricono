@@ -99,16 +99,16 @@ function PrixTotal(array, prix, quantite) {
 
 }
 
-//création class pour la fabriquer l'objet avec les valeur du formulaire
+//création class pour fabriquer l'objet avec les valeur du formulaire
 class formulaire {
 
-  constructor() { // pas besoin de paremetre puique les valeurs sont directement inserées 
+  constructor() { // pas besoin de paremetre puisque les valeurs sont directement inserées 
 
-    this.prenom = document.getElementById("id_prenom").value,
-      this.nom = document.getElementById("id_nom").value,
-      this.email = document.getElementById("id_email").value,
-      this.adresse = document.getElementById("id_adresse").value,
-      this.ville = document.getElementById("id_ville").value
+    this.prenom = document.getElementById("firsName").value,
+      this.nom = document.getElementById("lastName").value,
+      this.email = document.getElementById("email").value,
+      this.adresse = document.getElementById("adresse").value,
+      this.ville = document.getElementById("ville").value
   }
 }
 

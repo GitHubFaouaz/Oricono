@@ -27,9 +27,9 @@
       </div>
     </div>
   </header>
-  <main classe="main-product">
+  <main >
     <div class="container">
-      <section class="row" id="section_product_infos">
+      <div class="row" id="section_product_infos">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 " id="imageProuduit-js">
           <!--insertion image produit-->
         </div>
@@ -42,19 +42,19 @@
 
           </div>
           <div class="product-infos_couleur">
-            <label for="couleurBear">Couleur :</label>
+            <div>Couleur :</div>
             <select name="couleurBear" id="colorProuduit-js">
               <!--insertion couleur produit-->
             </select>
           </div>
           <div class=" row product-infos_btn  ">
-            <a href="../index.html"> <button class="btn btn-secondary   ">Revenir aux peluches</button>
-            </a> <button id="btn_envoyerPanier" class="btn btn-secondary ">Ajouter au panier</button>
+           <button class="btn btn-secondary"  onclick="window.location.href = '../index.html';">Revenir aux peluches</button>
+          <button id="btn_envoyerPanier" class="btn btn-secondary ">Ajouter au panier</button>
           </div>
 
 
         </div>
-      </section>
+      </div>
     </div>
 
 
@@ -63,14 +63,14 @@
       <div class=" modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="">Produit ajouté</h5>
+            <h5 class="modal-title" >Produit ajouté</h5>
           </div>
           <div class="modal-body">
             <!--insertion  paragraphe-->
           </div>
           <div class="modal-footer">
-            <a class="btn-modal  btn-secondary" type="button" href="panier.html">Voir mon panier</a>
-            <a class="btn-modal btn-success" type="button" href="../index.html">Continuer mes achats</a>
+            <a href="panier.html" class="btn-modal  btn-secondary"  >Voir mon panier</a>
+            <a href="../index.html" class="btn-modal btn-success"  >Continuer mes achats</a>
 
           </div>
         </div>

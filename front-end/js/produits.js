@@ -1,15 +1,19 @@
 //récupération de la chaine de requête dans l'url  pour afficher le bon produit 
 const queryString_url_id = window.location.search;
+console.log(queryString_url_id);
+
 //récupération  des arguments décodés de la requête GET contenu dans l'URL
 const urlSearchParams = new URLSearchParams(queryString_url_id);
 const idProduitSelectionne = urlSearchParams.get("name_id");
+
+console.log(idProduitSelectionne);
 
 // recuperation de l'objet par le biais de sa key id 
 fetch(`http://localhost:3000/api/teddies/${idProduitSelectionne}`)
   .then((response) => response.json())
   .then((data) => {
     let produitInfo = data;
-  // fonction pour la création du produit  
+    // fonction pour la création du produit  
     addProduit(produitInfo);
 
 

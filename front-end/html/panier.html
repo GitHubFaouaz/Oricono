@@ -26,64 +26,67 @@
   </header>
   <main id="main-panier">
     <div class="container  ">
-      <section id="section-info-panier">
+      <div id="section-info-panier">
 
         <!-- insertion des produits du panier -->
         <table>
           <thead class="row">
 
             <tr>
-              <th scole="col" class="col-2">produit</th>
-              <th scole="col" class="col-2">Nom </th>
-              <th scole="col" class="col-2">Couleur </th>
-              <th scole="col" class="col-2">Quantité </th>
-              <th scole="col" class="col-2">Prix</th>
-              <th scole="col" class="col-2">Sous-total</th>
+              <th class="col-2">produit</th>
+              <th class="col-2">Nom </th>
+              <th class="col-2">Couleur </th>
+              <th class="col-2">Quantité </th>
+              <th class="col-2">Prix</th>
+              <th class="col-2">Sous-total</th>
             </tr>
           </thead>
 
           <tbody class="row" id="tbody_produit">
 
-            <!------ insertion du panier ---->
+            <!-- insertion du panier -->
           </tbody>
-
+        </table>
+        
+        <table>
           <tfoot>
             <tr class="row ">
-              <th colspan="0" class="col-8"></th>
-              <th colspan="0" class="col-2">Total : </th>
-              <th colspan="0" class="col-2" id="totalPrice"></th>
+              <th class="col-8"></th>
+              <th class="col-2">Total : </th>
+              <th class="col-2" id="totalPrice"></th>
             </tr>
           </tfoot>
         </table>
-      </section>
+
+      </div>
     </div>
 
-    <section class="container  " id="section_button_valider_vider_panier">
+    <div class="container  " id="section_button_valider_vider_panier">
       <div class="row">
         <button type="submit" class="  btn btn-secondary valider_panier col-xs-3 col-sm-4 col-md-4 col-lg-3 ">Valider le
           panier</button>
         <button type="button" class=" btn btn-danger btn_panier_vide  col-xs-3 col-sm-4 col-md-4 col-lg-3">Vider le
           panier</button>
       </div>
-    </section>
+    </div>
 
-    <section class="container" id="section-commande">
+    <div class="container" id="section-commande">
 
       <h2>Votre adresse de livraison</h2>
       <form>
         <div class="div-label">
-          <div><label for="firsName">Prénom</label><input type="text" name="firsName" id="id_prenom"
+          <div><label for="firsName">Prénom</label><input type="text" name="firsName" id="firsName"
               placeholder="Ex: 'toto'"></div>
-          <div><label for="lastName">Nom</label><input type="text" name="lastName" id="id_nom" placeholder="Ex: oto">
+          <div><label for="lastName">Nom</label><input type="text" name="lastName" id="lastName" placeholder="Ex: oto">
           </div>
-          <div><label for="email">Adresse e-mail</label><input type="text" name="email" id="id_email"
+          <div><label for="email">Adresse e-mail</label><input type="text" name="email" id="email"
               placeholder="Ex: 'faouaza@yahoo.com'"></div>
         </div>
         <div class="div-label">
-          <div id='adresse'><label for="adresse">Adresse</label><input type="text" name="adresse" id="id_adresse"
+          <div><label for="adresse">Adresse</label><input type="text" name="adresse" id="adresse"
               placeholder="Ex: '17 rue orinounours'"></div>
 
-          <div><label for="ville">Ville</label><input type="text" name="ville" id="id_ville"
+          <div><label for="ville">Ville</label><input type="text" name="ville" id="ville"
               placeholder="Ex: 'city_orico'"></div>
 
         </div>
@@ -95,8 +98,8 @@
         </div>
 
       </form>
-    </section>
     </div>
+
   </main>
 
   <footer class="container-fluid">
